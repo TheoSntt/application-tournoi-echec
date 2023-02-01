@@ -17,7 +17,6 @@ class PlayersController:
         # models
         self.players: List[Player] = []
         # self.deck = deck
-        self.get_players()
 
         # views
         self.view = view
@@ -38,9 +37,38 @@ class PlayersController:
         to_write_players = {"players": []}
         for player in self.players:
             to_write_players["players"].append(player.to_json(include_score=False))
-        pprint(to_write_players)
+        # pprint(to_write_players)
         with open('data/players/players.json', 'w', encoding='utf-8') as f:
             json.dump(to_write_players, f, ensure_ascii=False, indent=2)
+
+    def just_add_a_player(self, name, surname, chess_id, date_of_birth):
+        player = create_player_from_dict({"name": name,
+                                          "surname": surname,
+                                          "chess_id": chess_id,
+                                          "date_of_birth": date_of_birth})
+        self.players.append(player)
+
+    def create_new_player(self):
+
+        must_prompt = True
+        while must_prompt:
+            already_exist = False
+            chess_id = self.view.prompt_for_chess_id()
+            for player in self.players:
+                if chess_id == player.chess_id:
+                    print("Cet identifiant existe déjà :")
+                    print(player)
+                    already_exist = True
+            if already_exist:
+                continue
+            else:
+                must_prompt = False
+
+        player = self.view.prompt_for_player(chess_id)
+
+        if player:
+            self.players.append(create_player_from_dict(player))
+            self.write_players_to_json()
 
     def run(self):
         """Run the game."""

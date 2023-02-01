@@ -29,6 +29,18 @@
       "surname": "Balayette",
       "chess_id": "AB12346",
       "date_of_birth": "1991/09/22"
+    },
+    {
+      "name": "Théo",
+      "surname": "Sinatti",
+      "chess_id": "GHZ99999",
+      "date_of_birth": "07/02/1994"
+    },
+    {
+      "name": "Johnny",
+      "surname": "La Menace",
+      "chess_id": "AZ12355",
+      "date_of_birth": "15/15/1515"
     }
   ]
 }

@@ -14,7 +14,6 @@ class TournamentsController:
         """Has a deck, a list of players and a view."""
         # models
         self.tournaments: List[Tournament] = []
-        self.get_tournaments()
         # self.deck = deck
 
         # views

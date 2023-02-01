@@ -43,12 +43,27 @@ class PlayersView:
 
             return user_choice
 
-    def prompt_for_player(self):
-        """Prompt for a name."""
-        name = input("tapez le nom du joueur : ")
-        if not name:
-            return None
-        return name
+    def prompt_for_chess_id(self):
+        """Prompt for a new players infos."""
+        while True:
+            value = input("Saisir l'identifiant d'échec du joueur : ")
+            if len(value) != 7:
+                print("L'identifiant n'a pas le format correct : AA12345.")
+                print(value[2:])
+                print(value[:2])
+                continue
+            else:
+                break
+        return value
+
+    def prompt_for_player(self, chess_id):
+        name = input("Saisir le prénom du joueur : ")
+        surname = input("Saisir le nom du joueur : ")
+        date_of_birth = input("Saisir la date de naissance du joueur : ")
+        return {"name": name,
+                "surname": surname,
+                "chess_id": chess_id,
+                "date_of_birth": date_of_birth}
 
     def show_player_hand(self, name, hand):
         """Show the player hand."""

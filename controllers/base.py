@@ -100,15 +100,19 @@ class Controller:
 
     def run(self):
         """Run the game."""
-        # self.get_players()
-        # self.get_tournaments()
-        # print(len(self.tournaments))
+        self.playersController.get_players()
+        self.tournamentsController.get_tournaments()
+
         # for tournament in self.tournaments:
         #     print(tournament)
         #     pprint(tournament.to_json())
 
-        self.write_data_to_json()
-        print(self.view.get_correct_input(self.view.MAIN_MENU_PROMPT, self.view.MAIN_MENU_VALUES))
+        # self.playersController.just_add_a_player("Théo", "Sinatti", "GHZ99999", "07/02/1994")
+        self.playersController.create_new_player()
+
+        # self.write_data_to_json()
+
+        # print(self.view.get_correct_input(self.view.MAIN_MENU_PROMPT, self.view.MAIN_MENU_VALUES))
 
 
         # running = True
