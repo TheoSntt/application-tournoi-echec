@@ -1,27 +1,19 @@
 """Define the main controller."""
 
-import json
-from typing import List
-from pprint import pprint
-
-from models.player import Player
-from models.tournament import Tournament
-from models.tools.player_creator import create_player_from_dict
 from controllers.players_controller import PlayersController
 from controllers.tournaments_controller import TournamentsController
 from views.players_view import PlayersView
 from views.tournaments_view import TournamentsView
-from models.turn import Turn
 
 
-class Controller:
+class AppController:
     """Main controller."""
 
     # def __init__(self, deck: Deck, view):
     def __init__(self, view):
         """Has a deck, a list of players and a view."""
         # models
-        self.playersController = PlayersController(PlayersView())
+        self.playersController = PlayersController(PlayersView(), self)
         self.tournamentsController = TournamentsController(TournamentsView())
         # self.deck = deck
 
@@ -102,13 +94,21 @@ class Controller:
         """Run the game."""
         self.playersController.get_players()
         self.tournamentsController.get_tournaments()
+        main_menu_user_choice = self.view.prompt_main_menu()
+        if main_menu_user_choice == 1:
+            self.playersController.run()
+        elif main_menu_user_choice == 2:
+            self.tournamentsController.run()
+        else:
+            return
 
         # for tournament in self.tournaments:
         #     print(tournament)
         #     pprint(tournament.to_json())
 
         # self.playersController.just_add_a_player("Théo", "Sinatti", "GHZ99999", "07/02/1994")
-        self.playersController.create_new_player()
+        # self.playersController.create_new_player()
+        # self.playersController.print_all_player(show_detail=True)
 
         # self.write_data_to_json()
 

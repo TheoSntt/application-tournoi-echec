@@ -1,15 +1,15 @@
 """Base view."""
-
+from pprint import pprint
 
 class PlayersView:
     """Card game view."""
 
     def __init__(self):
         self.MAIN_MENU_PROMPT = ("Que voulez-vous faire ?\n"
-                                 "1 - Imprimer des rapports\n"
-                                 "2 - Ajouter des joueurs à la base de donnée\n"
-                                 "3 - Créer un tournoi\n"
-                                 "4 - Continuer un tournoi en cours")
+                                 "1 - Lister tous les joueurs (nom, prénom, ID)\n"
+                                 "2 - Lister tous les détails de tous les joueurs\n"
+                                 "3 - Ajouter un nouveau joueur\n"
+                                 "4 - Retour au menu principal\n")
         self.MAIN_MENU_VALUES = [1, 2, 3, 4]
 
         # def validate_user_input(self, input, accepted_values):
@@ -34,14 +34,8 @@ class PlayersView:
 
     def prompt_main_menu(self):
         """Prompt app main menu."""
-        while not self.validate_user_input(user_choice, [1, 2, 3, 4]):
-            user_choice = input("Que voulez-vous faire ?\n"
-                                "1 - Imprimer des rapports\n"
-                                "2 - Ajouter des joueurs à la base de donnée\n"
-                                "3 - Créer un tournoi\n"
-                                "4 - Continuer un tournoi en cours")
-
-            return user_choice
+        user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
+        return user_choice
 
     def prompt_for_chess_id(self):
         """Prompt for a new players infos."""
@@ -56,6 +50,20 @@ class PlayersView:
                 break
         return value
 
+    def pretty_print_decorator(function):
+        def wrapper(*args, **kwargs):
+            print("_________________________")
+            function(*args, **kwargs)
+            print("_________________________")
+            print()
+
+        return wrapper
+
+    @pretty_print_decorator
+    def basic_output(self, *args):
+        for arg in args:
+            print(arg)
+
     def prompt_for_player(self, chess_id):
         name = input("Saisir le prénom du joueur : ")
         surname = input("Saisir le nom du joueur : ")
@@ -65,29 +73,19 @@ class PlayersView:
                 "chess_id": chess_id,
                 "date_of_birth": date_of_birth}
 
-    def show_player_hand(self, name, hand):
-        """Show the player hand."""
-        print(f"[Joueur {name}]")
-        for card in hand:
-            if card.is_face_up:
-                print(card)
-            else:
-                print("(carte face cachée)")
+    @pretty_print_decorator
+    def print_all_players(self, player_list, show_detail=False):
+        if show_detail:
+            player_list.sort(key=lambda x: x.surname)
+            print("LISTE DE TOUS LES JOUEURS ENREGISTRES DANS L'APPLICATION")
+            print()
+            for player in player_list:
+                print(repr(player))
+                print()
+        else:
+            player_list.sort(key=lambda x: x.surname)
+            print("LISTE DE TOUS LES JOUEURS ENREGISTRES DANS L'APPLICATION")
+            print()
+            for player in player_list:
+                print(player)
 
-    def prompt_for_flip_cards(self):
-        """Request to return the cards."""
-        print()
-        input("Prêt à retourner les cartes ?")
-        return True
-
-    def show_winner(self, name):
-        """Show the winner."""
-        print(f"Bravo {name} !")
-
-    def prompt_for_new_game(self):
-        """Request to replay."""
-        print("Souhaitez vous refaire une partie ?")
-        choice = input("Y/n: ")
-        if choice == "n":
-            return False
-        return True

@@ -44,14 +44,7 @@ class Player:
 
     def __repr__(self):
         """Used in print."""
-        pass
-        # player = {
-        #     'name': self.name,
-        #     'surname': self.surname,
-        #     'chess_id': self.chess_id,
-        #     'date_of_birth': self.date_of_birth
-        # }
-        # return player
+        return f"{self.name} {self.surname}\n{self.chess_id}\n{self.date_of_birth}"
 
     def to_json(self, include_score=False):
         """Used to write player to JSON."""

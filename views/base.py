@@ -6,11 +6,10 @@ class View:
 
     def __init__(self):
         self.MAIN_MENU_PROMPT = ("Que voulez-vous faire ?\n"
-                                 "1 - Imprimer des rapports\n"
-                                 "2 - Ajouter des joueurs à la base de donnée\n"
-                                 "3 - Créer un tournoi\n"
-                                 "4 - Continuer un tournoi en cours")
-        self.MAIN_MENU_VALUES = [1, 2, 3, 4]
+                                 "1 - Gestion des joueurs\n"
+                                 "2 - Gestion des tournois\n"
+                                 "3 - Quitter l'application\n")
+        self.MAIN_MENU_VALUES = [1, 2, 3]
 
         # def validate_user_input(self, input, accepted_values):
     #     """Check if the user imput is one of the expected values"""
@@ -34,14 +33,8 @@ class View:
 
     def prompt_main_menu(self):
         """Prompt app main menu."""
-        while not self.validate_user_input(user_choice, [1, 2, 3, 4]):
-            user_choice = input("Que voulez-vous faire ?\n"
-                                "1 - Imprimer des rapports\n"
-                                "2 - Ajouter des joueurs à la base de donnée\n"
-                                "3 - Créer un tournoi\n"
-                                "4 - Continuer un tournoi en cours")
-
-            return user_choice
+        user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
+        return user_choice
 
     def prompt_for_player(self):
         """Prompt for a name."""

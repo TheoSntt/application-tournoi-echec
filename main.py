@@ -3,13 +3,13 @@
 # from models.tournament import Tournament
 # from models.player import Player
 # from models.turn import Turn
-from controllers.base import Controller
+from controllers.app_controller import AppController
 from views.base import View
 
 
 def main():
     view = View()
-    session = Controller(view)
+    session = AppController(view)
     session.run()
 
     # """Retrieve the players stored in JSON"""
