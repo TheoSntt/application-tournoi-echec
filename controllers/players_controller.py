@@ -77,7 +77,7 @@ class PlayersController:
 
         self.run()
 
-    def print_all_player(self, show_detail=False):
+    def print_all_players(self, show_detail=False):
         """List all players saved in the app. With or without details (date of birth)"""
         if show_detail:
             self.view.print_all_players(self.players, show_detail=True)
@@ -91,9 +91,9 @@ class PlayersController:
         """Main function of the subcontroller : runs itself."""
         main_menu_user_choice = self.view.prompt_main_menu()
         if main_menu_user_choice ==1:
-            self.print_all_player()
+            self.print_all_players()
         elif main_menu_user_choice ==2:
-            self.print_all_player(show_detail=True)
+            self.print_all_players(show_detail=True)
         elif main_menu_user_choice ==3:
             self.create_new_player()
         elif main_menu_user_choice ==4:

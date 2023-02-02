@@ -10,25 +10,11 @@ class TournamentsController:
     """Main controller."""
 
     # def __init__(self, deck: Deck, view):
-    def __init__(self, view):
+    def __init__(self, view, appController):
         """Has a deck, a list of players and a view."""
-        # models
         self.tournaments: List[Tournament] = []
-        # self.deck = deck
-
-        # views
         self.view = view
-
-    # def get_players(self):
-    #     """Retrieve the players stored in JSON and add them to the Controller"""
-    #     with open('data/players/players.json', encoding='utf-8') as f:
-    #         json_content = json.load(f)
-    #         saved_players = json_content["players"]
-    #         for saved_player in saved_players:
-    #             player = create_player_from_dict(saved_player)
-    #             self.players.append(player)
-    #     # for player in self.players:
-    #     #     print(player)
+        self.appController = appController
 
     def get_tournaments(self):
         """Retrieve the tournaments stored in JSON and add them to the Controller"""
@@ -58,7 +44,78 @@ class TournamentsController:
         with open('data/tournaments/tournaments.json', 'w', encoding='utf-8') as f:
             json.dump(to_write_tournaments, f, ensure_ascii=False, indent=2)
 
+    def print_all_tournaments(self):
+        """List all players saved in the app. With or without details (date of birth)"""
+        self.view.print_all_tournaments(self.tournaments)
+        self.show_tournament_selector_menu(len(self.tournaments))
+
+    def create_new_tournament(self):
+        """Handle the creation of a new tournament in the data"""
+        print("Menu de création d'un tournoi à faire")
+
+        self.run()
+
+    def show_tournaments_in_progress(self):
+        """Allow to continue a tournament in progress"""
+        print("Menu de modification d'un tournoi à faire")
+
+        self.run()
+
+    def show_tournament_selector_menu(self, number_of_tournaments):
+        """Show the tournament selector menu and handle the user choice"""
+        selector_user_choice = self.view.prompt_selector_menu(number_of_tournaments)
+        try:
+            index = int(selector_user_choice)-1
+            selected_tournament = self.tournaments[index]
+            self.show_tournament_options(selected_tournament)
+        except ValueError:
+            if selector_user_choice.capitalize() == "R":
+                self.show_main_menu()
+            elif selector_user_choice.capitalize() == "A":
+                self.appController.run()
+            else:
+                print(f"Erreur ! Choix utilisateur : {selector_user_choice}")
+
+    def list_tournament_players(self, tournament):
+        for player in tournament.players_list:
+            self.view.basic_output(player)
+        self.show_tournament_options(tournament)
+
+    def show_tournament_details(self, tournament):
+        self.view.print_tournament_details(tournament)
+        self.show_tournament_options(tournament)
+
+    def show_tournament_options(self, tournament):
+        """Show the tournament options menu and handle the user choice"""
+        options_user_choice = self.view.prompt_tournament_options()
+        if options_user_choice == "1":
+            self.list_tournament_players(tournament)
+        elif options_user_choice == "2":
+            self.show_tournament_details(tournament)
+        elif options_user_choice == "3":
+            print("Menu de modification d'un tournoi à faire")
+        elif options_user_choice == "4":
+            self.show_main_menu()
+
+    def show_main_menu(self):
+        """Show the Tournament Manager Main Menu and handle the user choice"""
+        main_menu_user_choice = self.view.prompt_main_menu()
+        if main_menu_user_choice == "1":
+            # User choice : Print all tournaments
+            self.print_all_tournaments()
+        elif main_menu_user_choice == "2":
+            # User choice : Create new tournaments
+            self.create_new_tournament()
+        elif main_menu_user_choice == "3":
+            # User choice : Modify a tournament in progress
+            self.show_tournaments_in_progress()
+        elif main_menu_user_choice == "4":
+            # User choice : Back to Main Menu
+            self.appController.run()
+
     def run(self):
-        """Run the game."""
+        """Function called by the AppController. Runs the Subcontroller"""
+        self.show_main_menu()
+
 
 

@@ -6,11 +6,24 @@ class TournamentsView:
 
     def __init__(self):
         self.MAIN_MENU_PROMPT = ("Que voulez-vous faire ?\n"
-                                 "1 - Imprimer des rapports\n"
-                                 "2 - Ajouter des joueurs à la base de donnée\n"
-                                 "3 - Créer un tournoi\n"
-                                 "4 - Continuer un tournoi en cours")
-        self.MAIN_MENU_VALUES = [1, 2, 3, 4]
+                                 "1 - Lister tous les tournois\n"
+                                 "2 - Créer un tournoi\n"
+                                 "3 - Continuer un tournoi en cours\n"
+                                 "4 - Retour au Menu principal\n")
+        self.MAIN_MENU_VALUES = ["1", "2", "3", "4"]
+
+        self.SELECTOR_MENU_PROMPT = ("Selectionnez un tournoi pour voir les options \n"
+                                     "R - Retour au menu précédent\n"
+                                     "A - Retour au Menu Principal\n")
+        self.SELECTOR_MENU_VALUES = ["R", "A", "r", "a"]
+
+        self.TOURNAMENT_OPTIONS_PROMPT = ("Tournoi sélectionné :\n"
+                                          "<>\n"
+                                          "1 - Lister les participants par ordre alphabétique\n"
+                                          "2 - Afficher toutes les informations sur le tournoi\n"
+                                          "3 - Modifier le tournoi\n"
+                                          "4 - Retour au menu des tournois\n")
+        self.TOURNAMENT_OPTIONS_VALUES = ["1", "2", "3", "4"]
 
         # def validate_user_input(self, input, accepted_values):
     #     """Check if the user imput is one of the expected values"""
@@ -20,11 +33,7 @@ class TournamentsView:
 
     def get_correct_input(self, prompt, accepted_values):
         while True:
-            try:
-                value = int(input(prompt))
-            except ValueError:
-                print("Veuillez choisir une des options proposées.")
-                continue
+            value = input(prompt)
             if value not in accepted_values:
                 print("Veuillez choisir une des options proposées.")
                 continue
@@ -34,45 +43,47 @@ class TournamentsView:
 
     def prompt_main_menu(self):
         """Prompt app main menu."""
-        while not self.validate_user_input(user_choice, [1, 2, 3, 4]):
-            user_choice = input("Que voulez-vous faire ?\n"
-                                "1 - Imprimer des rapports\n"
-                                "2 - Ajouter des joueurs à la base de donnée\n"
-                                "3 - Créer un tournoi\n"
-                                "4 - Continuer un tournoi en cours")
+        user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
+        return user_choice
 
-            return user_choice
+    def prompt_selector_menu(self, number_of_tournaments):
+        """Prompt app main menu."""
+        values = self.SELECTOR_MENU_VALUES
+        for i in range(1, number_of_tournaments+1):
+            values.append(str(i))
+        # print(values)
+        user_choice = self.get_correct_input(self.SELECTOR_MENU_PROMPT, values)
+        return user_choice
 
-    def prompt_for_player(self):
-        """Prompt for a name."""
-        name = input("tapez le nom du joueur : ")
-        if not name:
-            return None
-        return name
+    def prompt_tournament_options(self):
+        """Prompt app main menu."""
+        user_choice = self.get_correct_input(self.TOURNAMENT_OPTIONS_PROMPT, self.TOURNAMENT_OPTIONS_VALUES)
+        return user_choice
 
-    def show_player_hand(self, name, hand):
-        """Show the player hand."""
-        print(f"[Joueur {name}]")
-        for card in hand:
-            if card.is_face_up:
-                print(card)
-            else:
-                print("(carte face cachée)")
+    def pretty_print_decorator(function):
+        def wrapper(*args, **kwargs):
+            print("_________________________")
+            function(*args, **kwargs)
+            print("_________________________")
+            print()
 
-    def prompt_for_flip_cards(self):
-        """Request to return the cards."""
+        return wrapper
+
+    @pretty_print_decorator
+    def basic_output(self, *args):
+        for arg in args:
+            print(arg)
+
+    @pretty_print_decorator
+    def print_all_tournaments(self, tournaments_list):
+        tournaments_list.sort(key=lambda x: x.start_date)
+        print("LISTE DE TOUS LES TOURNOIS ENREGISTRES DANS L'APPLICATION")
         print()
-        input("Prêt à retourner les cartes ?")
-        return True
+        i = 1
+        for tournament in tournaments_list:
+            print(f"{i} - {tournament}")
+            i += 1
 
-    def show_winner(self, name):
-        """Show the winner."""
-        print(f"Bravo {name} !")
-
-    def prompt_for_new_game(self):
-        """Request to replay."""
-        print("Souhaitez vous refaire une partie ?")
-        choice = input("Y/n: ")
-        if choice == "n":
-            return False
-        return True
+    @pretty_print_decorator
+    def print_tournament_details(self, tournament):
+        print(repr(tournament))

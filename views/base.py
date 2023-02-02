@@ -5,7 +5,7 @@ class View:
     """Card game view."""
 
     def __init__(self):
-        self.MAIN_MENU_PROMPT = ("Que voulez-vous faire ?\n"
+        self.MAIN_MENU_PROMPT = ("MENU PRINCIPAL :\n"
                                  "1 - Gestion des joueurs\n"
                                  "2 - Gestion des tournois\n"
                                  "3 - Quitter l'application\n")

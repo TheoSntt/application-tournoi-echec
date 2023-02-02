@@ -14,7 +14,7 @@ class AppController:
         """Has a deck, a list of players and a view."""
         # models
         self.playersController = PlayersController(PlayersView(), self)
-        self.tournamentsController = TournamentsController(TournamentsView())
+        self.tournamentsController = TournamentsController(TournamentsView(), self)
         # self.deck = deck
 
         # views
