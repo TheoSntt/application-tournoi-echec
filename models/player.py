@@ -1,5 +1,7 @@
 """Define the Player Object."""
 
+from models.app_parameters import appParams
+
 
 class Player:
     """Players are stored independently in JSON. Tournaments include Players in their players_list variable."""
@@ -10,10 +12,6 @@ class Player:
         self.chess_id = chess_id
         self.date_of_birth = date_of_birth
         self.score = score
-        # Application variables
-        self.POINTS_FOR_VICTORY = 1
-        self.POINTS_FOR_TIE = 0.5
-        self.POINTS_FOR_DEFEAT = 0
 
     def __str__(self):
         """Used in print."""
@@ -43,9 +41,13 @@ class Player:
         return player
 
     def win_a_game(self):
-        self.score += self.POINTS_FOR_VICTORY
+        self.score += appParams['POINTS_FOR_VICTORY']
         print(f"Yay, {self} won a game !")
 
     def tie_a_game(self):
-        self.score += self.POINTS_FOR_TIE
+        self.score += appParams['POINTS_FOR_TIE']
         print(f"Hum, {self} tied !")
+
+    def lose_a_game(self):
+        self.score += appParams['POINTS_FOR_DEFEAT']
+        print(f"Yikes, {self} lost a game !")

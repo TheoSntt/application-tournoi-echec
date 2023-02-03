@@ -3,12 +3,14 @@
 
 from models.tools.player_creator import create_player_from_dict
 from models.tools.turn_creator import create_turn_from_dict
+from models.app_parameters import appParams
 
 
 class Tournament:
     """The Tournament Class is the main class of the App Model. It includes all other classes."""
-    def __init__(self, name, place, start_date, end_date, description, players_list,
-                 turns_list, number_of_turns=4, current_turn=1, in_progress=True):
+    def __init__(self, name, place, start_date, end_date, description, players_list, turns_list,
+                 number_of_turns=appParams['DEFAULT_NUMBER_OF_TURNS'],
+                 current_turn=1, in_progress=True):
         """Has a name, place, start and end date, description, number of turns, current turn, in progress."""
         """Has a players_list and a turns_list that include respectively Player objects and Turn objects"""
         self.name = name
@@ -35,18 +37,28 @@ class Tournament:
 
     def __str__(self):
         """Used to print tournament name and dates in a list."""
-        if self.name.startswith("Tournoi"):
-            if self.end_date is False:
-                return f"{self.name}, débuté le {self.start_date}, et encore en cours."
-            return f"{self.name}, du {self.start_date} au {self.end_date}"
         if self.end_date is False:
-            return f"Tournoi {self.name}, débuté le {self.start_date}, et encore en cours."
-        return f"Tournoi {self.name}, du {self.start_date} au {self.end_date}"
+            return f"{self.name}, débuté le {self.start_date}, et encore en cours."
+        return f"{self.name}, du {self.start_date} au {self.end_date}"
 
     def __repr__(self):
         """Used to print all the tournament details and information."""
-        tournament = "Il faudra générer un affichage de tous les tours, les joueurs, les matchs, ..."
-        return tournament
+        tournament_str = ""
+        if self.end_date is False:
+            tournament_str += f"{self.name.capitalize()}\nDébuté le {self.start_date}, et encore en cours.\n"
+        else:
+            tournament_str += f"{self.name.capitalize()}\nDu {self.start_date} au {self.end_date}\n"
+        tournament_str += self.description
+        tournament_str += f"\n\nLISTE DES JOUEURS :\n"
+        i = 1
+        self.players_list.sort(key=lambda x: x.score, reverse=True)
+        for player in self.players_list:
+            tournament_str += f"{i} - {str(player)} - Score final : {player.score}\n"
+            i += 1
+        tournament_str += f"\n\nLISTE DES TOURS DE JEU :\n"
+        for turn in self.turns_list:
+            tournament_str += f"{str(turn)}\n"
+        return tournament_str
 
     def list_players(self):
         """Used to print all the players of the tournament in alphabetical order."""
