@@ -1,8 +1,8 @@
-"""Define the Game."""
+"""Define the Match Object."""
 
 
-class Game(tuple):
-    """The Game object is just a tuple, with a few methods to print to json"""
+class Match(tuple):
+    """The Match class is just a tuple, with a few methods to print to json"""
     def __str__(self):
         if self[0][1] == self[0][0].POINTS_FOR_VICTORY:
             return f"Match entre {str(self[0][0])} (Vainqueur) et {str(self[1][0])}"
@@ -24,12 +24,5 @@ class Game(tuple):
             return "Issue du match inconnue"
 
     def to_json(self):
-        game = [[self[0][0].to_json(),self[0][1]],[self[1][0].to_json(),self[1][1]]]
-        return game
-
-
-if __name__ == '__main__':
-    game = Game(([{'name': "John", 'age': 12}, 0], ["Gary", 1]))
-    print(game)
-    print(game[0])
-    print(game[1])
+        match = [[self[0][0].to_json(),self[0][1]],[self[1][0].to_json(),self[1][1]]]
+        return match

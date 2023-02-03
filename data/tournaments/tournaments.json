@@ -14,7 +14,7 @@
           "name": "Round 1",
           "start_time": "18:15",
           "end_time": "18:30",
-          "games": [
+          "matches": [
             [
               [
                 {
@@ -61,7 +61,7 @@
           "name": "Round 2",
           "start_time": "18:45",
           "end_time": "19:00",
-          "games": [
+          "matches": [
             [
               [
                 {
@@ -108,7 +108,7 @@
           "name": "Round 3",
           "start_time": "19:15",
           "end_time": "19:30",
-          "games": [
+          "matches": [
             [
               [
                 {
@@ -155,7 +155,7 @@
           "name": "Round 4",
           "start_time": "19:45",
           "end_time": "20:00",
-          "games": [
+          "matches": [
             [
               [
                 {
@@ -244,7 +244,7 @@
           "name": "Round 1",
           "start_time": "18:15",
           "end_time": "18:30",
-          "games": [
+          "matches": [
             [
               [
                 {

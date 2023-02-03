@@ -1,10 +1,10 @@
-"""Base view."""
+"""View : View for the Tournaments Manager SubController."""
 
 
 class TournamentsView:
-    """Card game view."""
-
+    """View for the Tournaments Manager SubController."""
     def __init__(self):
+        """Menus prompts are declared here."""
         self.MAIN_MENU_PROMPT = ("Que voulez-vous faire ?\n"
                                  "1 - Lister tous les tournois\n"
                                  "2 - Créer un tournoi\n"
@@ -25,13 +25,8 @@ class TournamentsView:
                                           "4 - Retour au menu des tournois\n")
         self.TOURNAMENT_OPTIONS_VALUES = ["1", "2", "3", "4"]
 
-        # def validate_user_input(self, input, accepted_values):
-    #     """Check if the user imput is one of the expected values"""
-    #     if input in accepted_values:
-    #         return True
-    #     return False
-
     def get_correct_input(self, prompt, accepted_values):
+        """Prompt a menu and verifies that the user input is one of the accepted values."""
         while True:
             value = input(prompt)
             if value not in accepted_values:
@@ -42,12 +37,12 @@ class TournamentsView:
         return value
 
     def prompt_main_menu(self):
-        """Prompt app main menu."""
+        """Prompt the Tournaments Manager Main Menu."""
         user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
         return user_choice
 
     def prompt_selector_menu(self, number_of_tournaments):
-        """Prompt app main menu."""
+        """Prompt the tournament selector menu. Allow to select a tournament in the displayed list."""
         values = self.SELECTOR_MENU_VALUES
         for i in range(1, number_of_tournaments+1):
             values.append(str(i))
@@ -56,11 +51,12 @@ class TournamentsView:
         return user_choice
 
     def prompt_tournament_options(self):
-        """Prompt app main menu."""
+        """Prompt the tournament options menu. Once a tournament is selected, display the options."""
         user_choice = self.get_correct_input(self.TOURNAMENT_OPTIONS_PROMPT, self.TOURNAMENT_OPTIONS_VALUES)
         return user_choice
 
     def pretty_print_decorator(function):
+        """Decorator for printing functions."""
         def wrapper(*args, **kwargs):
             print("_________________________")
             function(*args, **kwargs)
@@ -71,11 +67,13 @@ class TournamentsView:
 
     @pretty_print_decorator
     def basic_output(self, *args):
+        """Basic information printing function."""
         for arg in args:
             print(arg)
 
     @pretty_print_decorator
     def print_all_tournaments(self, tournaments_list):
+        """List all tournaments, with numbering to allow the user to select one in the list."""
         tournaments_list.sort(key=lambda x: x.start_date)
         print("LISTE DE TOUS LES TOURNOIS ENREGISTRES DANS L'APPLICATION")
         print()
@@ -86,4 +84,5 @@ class TournamentsView:
 
     @pretty_print_decorator
     def print_tournament_details(self, tournament):
+        """Display all the information of a tournament in a readable way."""
         print(repr(tournament))

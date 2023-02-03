@@ -1,6 +1,30 @@
 {
   "players": [
     {
+      "name": "A",
+      "surname": "A",
+      "chess_id": "DD45784",
+      "date_of_birth": "4"
+    },
+    {
+      "name": "A",
+      "surname": "A",
+      "chess_id": "FF45784",
+      "date_of_birth": "4"
+    },
+    {
+      "name": "A",
+      "surname": "A",
+      "chess_id": "ZZ45123",
+      "date_of_birth": "A"
+    },
+    {
+      "name": "AA",
+      "surname": "BB",
+      "chess_id": "RR56895",
+      "date_of_birth": "45/45/4545"
+    },
+    {
       "name": "Colette",
       "surname": "Balayette",
       "chess_id": "AB12346",
@@ -13,10 +37,22 @@
       "date_of_birth": "1994/11/03"
     },
     {
+      "name": "John",
+      "surname": "Bonham",
+      "chess_id": "FF45678",
+      "date_of_birth": "45/78/8956"
+    },
+    {
       "name": "Sylvie",
       "surname": "Culture",
       "chess_id": "AA12346",
       "date_of_birth": "1996/03/21"
+    },
+    {
+      "name": "KJ",
+      "surname": "DZ",
+      "chess_id": "TT45784",
+      "date_of_birth": "25"
     },
     {
       "name": "Johnny",
@@ -29,6 +65,12 @@
       "surname": "Mitsuko",
       "chess_id": "AZ45784",
       "date_of_birth": "12/12/2002"
+    },
+    {
+      "name": "Bob",
+      "surname": "Morane",
+      "chess_id": "AZ23568",
+      "date_of_birth": "19/12/1245"
     },
     {
       "name": "Paul",
@@ -49,46 +91,10 @@
       "date_of_birth": "1993/02/16"
     },
     {
-      "name": "Bob",
-      "surname": "Morane",
-      "chess_id": "AZ23568",
-      "date_of_birth": "19/12/1245"
-    },
-    {
-      "name": "John",
-      "surname": "Bonham",
-      "chess_id": "FF45678",
-      "date_of_birth": "45/78/8956"
-    },
-    {
-      "name": "AA",
-      "surname": "BB",
-      "chess_id": "RR56895",
-      "date_of_birth": "45/45/4545"
-    },
-    {
-      "name": "KJ",
-      "surname": "DZ",
-      "chess_id": "TT45784",
-      "date_of_birth": "25"
-    },
-    {
-      "name": "A",
-      "surname": "A",
-      "chess_id": "DD45784",
-      "date_of_birth": "4"
-    },
-    {
-      "name": "A",
-      "surname": "A",
-      "chess_id": "FF45784",
-      "date_of_birth": "4"
-    },
-    {
-      "name": "A",
-      "surname": "A",
-      "chess_id": "ZZ45123",
-      "date_of_birth": "A"
+      "name": "FK",
+      "surname": "frefr",
+      "chess_id": "JH78945",
+      "date_of_birth": "546"
     }
   ]
 }

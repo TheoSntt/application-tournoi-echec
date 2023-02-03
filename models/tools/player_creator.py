@@ -1,4 +1,4 @@
-"""Player and Hand."""
+"""Create a Player Object from a dictionary."""
 
 
 from models.player import Player
@@ -18,4 +18,3 @@ def create_player_from_dict(player_dict):
                         chess_id=player_dict["chess_id"],
                         date_of_birth=player_dict["date_of_birth"])
     return player
-

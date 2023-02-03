@@ -1,10 +1,10 @@
-"""Base view."""
-from pprint import pprint
+"""View : View for the Players Manager SubController."""
+
 
 class PlayersView:
-    """Card game view."""
-
+    """View for the Players Manager SubController."""
     def __init__(self):
+        """Menus prompts are declared here."""
         self.MAIN_MENU_PROMPT = ("Que voulez-vous faire ?\n"
                                  "1 - Lister tous les joueurs (nom, prénom, ID)\n"
                                  "2 - Lister tous les détails de tous les joueurs\n"
@@ -12,13 +12,8 @@ class PlayersView:
                                  "4 - Retour au menu principal\n")
         self.MAIN_MENU_VALUES = [1, 2, 3, 4]
 
-        # def validate_user_input(self, input, accepted_values):
-    #     """Check if the user imput is one of the expected values"""
-    #     if input in accepted_values:
-    #         return True
-    #     return False
-
     def get_correct_input(self, prompt, accepted_values):
+        """Prompt a menu and verifies that the user input is one of the accepted values."""
         while True:
             try:
                 value = int(input(prompt))
@@ -33,12 +28,12 @@ class PlayersView:
         return value
 
     def prompt_main_menu(self):
-        """Prompt app main menu."""
+        """Prompt the Players Manager Main Menu."""
         user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
         return user_choice
 
     def prompt_for_chess_id(self):
-        """Prompt for a new players infos."""
+        """Prompt for a new player's chess_id."""
         while True:
             value = input("Saisir l'identifiant d'échec du joueur : ")
             if len(value) != 7:
@@ -51,6 +46,7 @@ class PlayersView:
         return value
 
     def pretty_print_decorator(function):
+        """Decorator for printing functions."""
         def wrapper(*args, **kwargs):
             print("_________________________")
             function(*args, **kwargs)
@@ -61,10 +57,13 @@ class PlayersView:
 
     @pretty_print_decorator
     def basic_output(self, *args):
+        """Basic information printing function."""
         for arg in args:
             print(arg)
 
     def prompt_for_player(self, chess_id):
+        """Once the unicity of the new player's chess id has been established,
+        prompts for the rest of the information."""
         name = input("Saisir le prénom du joueur : ")
         surname = input("Saisir le nom du joueur : ")
         date_of_birth = input("Saisir la date de naissance du joueur : ")
@@ -75,6 +74,7 @@ class PlayersView:
 
     @pretty_print_decorator
     def print_all_players(self, player_list, show_detail=False):
+        """Display a list of all players, in a compact or detailed way."""
         if show_detail:
             player_list.sort(key=lambda x: x.surname)
             print("LISTE DE TOUS LES JOUEURS ENREGISTRES DANS L'APPLICATION")

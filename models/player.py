@@ -1,31 +1,8 @@
-"""Player and Hand."""
-
-from typing import List
-
-
-# POINTS_FOR_VICTORY = 1
-# POINTS_FOR_TIE = 0.5
-
-
-# class PlayersPool(list):
-#     """Player hand."""
-#
-#     def append(self, object):
-#         """Append a player."""
-#         if not isinstance(object, Player):
-#             return ValueError("Vous ne pouvez ajouter que des joueurs !")
-#         return super().append(object)
-#
-#     def return_matches(self):
-#         pass
-#
-#     def store_already_done_matches(self):
-#         pass
+"""Define the Player Object."""
 
 
 class Player:
-    """Player."""
-
+    """Players are stored independently in JSON. Tournaments include Players in their players_list variable."""
     def __init__(self, name, surname, chess_id, date_of_birth, score=0):
         """Has a name, surname, chess_id, date_of_birth, and score."""
         self.name = name
@@ -33,7 +10,7 @@ class Player:
         self.chess_id = chess_id
         self.date_of_birth = date_of_birth
         self.score = score
-        # self.hand: List[Card] = Hand()
+        # Application variables
         self.POINTS_FOR_VICTORY = 1
         self.POINTS_FOR_TIE = 0.5
         self.POINTS_FOR_DEFEAT = 0

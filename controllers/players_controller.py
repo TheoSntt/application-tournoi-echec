@@ -1,23 +1,18 @@
-"""Define the main controller."""
+"""Define the Players Manager Subcontroller."""
 
 import json
 from typing import List
-from pprint import pprint
-
 from models.player import Player
 from models.tools.player_creator import create_player_from_dict
-from controllers.ABC_controller import SubController
 
 
 class PlayersController:
-    """Main controller."""
-
-    # def __init__(self, deck: Deck, view):
-    def __init__(self, view, appController):
+    """Players Manager Subcontroller."""
+    def __init__(self, view, appcontroller):
         """Has a deck, a list of players and a view."""
         self.players: List[Player] = []
         self.view = view
-        self.appController = appController
+        self.appController = appcontroller
 
     def get_players(self):
         """Retrieve the players stored in JSON and add them to the Controller"""
@@ -86,15 +81,19 @@ class PlayersController:
 
         self.run()
 
+    def show_main_menu(self):
+        """Show the Tournament Manager Main Menu and handle the user choice."""
+        main_menu_user_choice = self.view.prompt_main_menu()
+        if main_menu_user_choice == 1:
+            self.print_all_players()
+        elif main_menu_user_choice == 2:
+            self.print_all_players(show_detail=True)
+        elif main_menu_user_choice == 3:
+            self.create_new_player()
+        elif main_menu_user_choice == 4:
+            self.appController.show_main_menu()
 
     def run(self):
-        """Main function of the subcontroller : runs itself."""
-        main_menu_user_choice = self.view.prompt_main_menu()
-        if main_menu_user_choice ==1:
-            self.print_all_players()
-        elif main_menu_user_choice ==2:
-            self.print_all_players(show_detail=True)
-        elif main_menu_user_choice ==3:
-            self.create_new_player()
-        elif main_menu_user_choice ==4:
-            self.appController.run()
+        """Function called by the AppController. Runs the Subcontroller."""
+        self.show_main_menu()
+

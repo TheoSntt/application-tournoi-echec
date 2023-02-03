@@ -1,4 +1,4 @@
-"""Abstract Class for SubControllers. Allows them to reference the main app controller"""
+"""Was an attempt at Abstract Class. But what I wanted to do actually doesn't work. TO REMOVE"""
 
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING

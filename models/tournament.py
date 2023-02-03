@@ -1,18 +1,16 @@
-"""Define the Deck."""
+"""Define the Tournament Object."""
 
-from typing import Optional
-import random
-from models.player import Player
+
 from models.tools.player_creator import create_player_from_dict
 from models.tools.turn_creator import create_turn_from_dict
 
 
 class Tournament:
-    """Player."""
-
-    def __init__(self, name, place, start_date, end_date, description, players_list, turns_list, number_of_turns=4, current_turn=1,
-                 in_progress=True):
-        """Has a name, place, start and end date, description, number of turns, current turn, in progress, and score."""
+    """The Tournament Class is the main class of the App Model. It includes all other classes."""
+    def __init__(self, name, place, start_date, end_date, description, players_list,
+                 turns_list, number_of_turns=4, current_turn=1, in_progress=True):
+        """Has a name, place, start and end date, description, number of turns, current turn, in progress."""
+        """Has a players_list and a turns_list that include respectively Player objects and Turn objects"""
         self.name = name
         self.place = place
         self.start_date = start_date
