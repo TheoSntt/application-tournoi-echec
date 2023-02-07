@@ -234,7 +234,7 @@
       "name": "Critérium intercité du Poitou",
       "place": "Velisy-sur-Charentes",
       "start_date": "2023/01/01",
-      "end_date": false,
+      "end_date": null,
       "description": "Pas fou ce tournoi.",
       "number_of_turns": 4,
       "current_turn": 2,
@@ -316,6 +316,64 @@
           "chess_id": "AA12346",
           "date_of_birth": "1996/03/21",
           "score": 1
+        }
+      ]
+    },
+    {
+      "name": "Tournoi Chouettos",
+      "place": "Maubeuge",
+      "start_date": "Aujourd'hui",
+      "end_date": null,
+      "description": "Ce tournoi est un essai de création par l'application.",
+      "number_of_turns": 23,
+      "current_turn": 1,
+      "in_progress": true,
+      "turns_list": [],
+      "players_list": []
+    },
+    {
+      "name": "John",
+      "place": "Mennecy",
+      "start_date": "12/12/12",
+      "end_date": null,
+      "description": "GFGYZhfuiehfurife",
+      "number_of_turns": 6,
+      "current_turn": 1,
+      "in_progress": true,
+      "turns_list": [],
+      "players_list": []
+    },
+    {
+      "name": "TOurnoi Test",
+      "place": "Ici",
+      "start_date": "Maintenant",
+      "end_date": null,
+      "description": "Cool",
+      "number_of_turns": 5,
+      "current_turn": 1,
+      "in_progress": true,
+      "turns_list": [],
+      "players_list": [
+        {
+          "name": "Jean",
+          "surname": "Bon",
+          "chess_id": "AA12345",
+          "date_of_birth": "1994/11/03",
+          "score": 0
+        },
+        {
+          "name": "Sylvie",
+          "surname": "Culture",
+          "chess_id": "AA12346",
+          "date_of_birth": "1996/03/21",
+          "score": 0
+        },
+        {
+          "name": "Sylvie",
+          "surname": "Vartan",
+          "chess_id": "AB12345",
+          "date_of_birth": "1993/02/16",
+          "score": 0
         }
       ]
     }

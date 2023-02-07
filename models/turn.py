@@ -7,7 +7,7 @@ from models.tools.match_creator import create_match_from_list
 
 class Turn:
     """Turn objects are nested in the turns_list variable of the Tournament."""
-    def __init__(self, name, matches, start_time=time.time(), end_time=0):
+    def __init__(self, name, matches, start_time=time.time(), end_time=None):
         """Has a name, start_time, end_time, and includes a list of matches."""
         self.name = name
         self.start_time = start_time

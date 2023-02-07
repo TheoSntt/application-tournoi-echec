@@ -1,7 +1,7 @@
 """View : View for the Tournaments Manager SubController."""
 
 
-class TournamentsView:
+class TournamentModifierView:
     """View for the Tournaments Manager SubController."""
     def __init__(self):
         """Menus prompts are declared here."""

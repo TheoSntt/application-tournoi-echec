@@ -4,6 +4,8 @@
 from models.tools.player_creator import create_player_from_dict
 from models.tools.turn_creator import create_turn_from_dict
 from models.app_parameters import appParams
+from random import randrange
+from datetime import datetime
 
 
 class Tournament:
@@ -67,6 +69,26 @@ class Tournament:
             player_list.append(str(player))
         # print(player_list)
         return player_list
+
+    def generate_new_turn(self):
+        number_of_match = len(self.players_list)/2
+        players_list = []
+        for player in self.players_list:
+            players_list.append(player)
+        matches = []
+        for i in range(number_of_match):
+            player1 = players_list.pop(randrange(len(players_list)))
+            player2 = players_list.pop(randrange(len(players_list)))
+            matches.append(([player1, 0], [player2, 0]))
+        turn_name = f"Round {len(self.turns_list)+1}"
+        now = datetime.now()
+        turn_start = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
+        turn = create_turn_from_dict({"name": turn_name,
+                                      "start_time": turn_start,
+                                      "end_time": None,
+                                      "matches": matches})
+        self.turns_list.append(turn)
+
 
     def to_json(self):
         """Used to write tournament to JSON."""

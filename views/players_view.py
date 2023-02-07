@@ -59,7 +59,10 @@ class PlayersView:
     def basic_output(self, *args):
         """Basic information printing function."""
         for arg in args:
-            print(arg)
+            if type(arg) is list:
+                print(a for a in arg)
+            else:
+                print(arg)
 
     def prompt_for_player(self, chess_id):
         """Once the unicity of the new player's chess id has been established,
