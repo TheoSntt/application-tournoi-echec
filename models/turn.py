@@ -2,7 +2,7 @@
 
 
 import time
-from models.tools.match_creator import create_match_from_list
+# from models.tools.match_creator import create_match_from_list
 
 
 class Turn:
@@ -12,10 +12,12 @@ class Turn:
         self.name = name
         self.start_time = start_time
         self.end_time = end_time
-        self.matches = []
-        for match in matches:
-            match_object = create_match_from_list(match)
-            self.matches.append(match_object)
+        self.matches = matches
+        # self.matches = []
+        # for match in matches:
+        #     match_object = create_match_from_list(match)
+        #     self.matches.append(match_object)
+
 
     def __str__(self):
         """Used in print."""

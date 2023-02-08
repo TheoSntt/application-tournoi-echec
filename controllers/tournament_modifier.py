@@ -60,14 +60,20 @@ class TournamentModifier:
         for match in turn.matches:
             match_winner = self.view.prompt_for_match_winner(match)
             if match_winner == "1":
+                match[0][0].win_a_game()
                 match[0][1] = appParams["POINTS_FOR_VICTORY"]
+                match[1][0].lose_a_game()
                 match[1][1] = appParams["POINTS_FOR_DEFEAT"]
             elif match_winner == "2":
+                match[1][0].win_a_game()
                 match[1][1] = appParams["POINTS_FOR_VICTORY"]
+                match[0][0].lose_a_game()
                 match[0][1] = appParams["POINTS_FOR_DEFEAT"]
             elif match_winner == "3":
-                match[1][1] = appParams["POINTS_FOR_TIE"]
+                match[0][0].tie_a_game()
                 match[0][1] = appParams["POINTS_FOR_TIE"]
+                match[1][0].tie_a_game()
+                match[1][1] = appParams["POINTS_FOR_TIE"]
         now = datetime.now()
         turn_end = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
         turn.end_time = turn_end

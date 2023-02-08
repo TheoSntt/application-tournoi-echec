@@ -1,8 +1,11 @@
 """Define the Tournament Object."""
 
 
-from models.tools.player_creator import create_player_from_dict
-from models.tools.turn_creator import create_turn_from_dict
+# from models.tools.player_creator import create_player_from_dict
+from models.player import Player
+from models.turn import Turn
+from models.match import Match
+# from models.tools.turn_creator import create_turn_from_dict
 from models.app_parameters import appParams
 from random import randrange
 from datetime import datetime
@@ -24,12 +27,40 @@ class Tournament:
         # Generate the Player list
         self.players_list = []
         for player in players_list:
-            player_object = create_player_from_dict(player)
+            # player_object = create_player_from_dict(player)
+            player_object = Player(name=player["name"],
+                                   surname=player["surname"],
+                                   chess_id=player["chess_id"],
+                                   date_of_birth=player["date_of_birth"],
+                                   score=player["score"])
             self.players_list.append(player_object)
         # Generate the Turn list
         self.turns_list = []
         for turn in turns_list:
-            turn_object = create_turn_from_dict(turn)
+            # For each Turn in the Turn list, we must generate the Match objects, that include Players objects
+            matches_list = []
+            for match in turn["matches"]:
+                # For each match, retrieve the first player from the players list
+                id1 = match[0][0]["chess_id"]
+                for player in self.players_list:
+                    if player.chess_id == id1:
+                        player1 = player
+                        break
+                # For each match, retrieve the second player from the players list
+                id2 = match[1][0]["chess_id"]
+                for player in self.players_list:
+                    if player.chess_id == id2:
+                        player2 = player
+                        break
+                # Create the Match Object with the Players within and adding it to the Turn object Match list.
+                match_object = Match(([player1, match[0][1]], [player2, match[1][1]]))
+                matches_list.append(match_object)
+            # We can now create the Turn object, including Match objects including Players objects
+            # turn_object = create_turn_from_dict(turn)
+            turn_object = Turn(name=turn["name"],
+                               start_time=turn["start_time"],
+                               end_time=turn["end_time"],
+                               matches=matches_list)
             self.turns_list.append(turn_object)
 
         self.number_of_turns = number_of_turns
@@ -83,14 +114,15 @@ class Tournament:
         for i in range(number_of_match):
             player1 = players_list.pop(randrange(len(players_list)))
             player2 = players_list.pop(randrange(len(players_list)))
-            matches.append(([player1.to_json(), 0], [player2.to_json(), 0]))
+            # matches.append(([player1.to_json(), 0], [player2.to_json(), 0]))
+            matches.append(Match(([player1, 0], [player2, 0])))
         turn_name = f"Round {len(self.turns_list)+1}"
         now = datetime.now()
         turn_start = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
-        turn = create_turn_from_dict({"name": turn_name,
-                                      "start_time": turn_start,
-                                      "end_time": None,
-                                      "matches": matches})
+        turn = Turn(name=turn_name,
+                    start_time=turn_start,
+                    end_time=None,
+                    matches=matches)
         self.turns_list.append(turn)
         return turn
 

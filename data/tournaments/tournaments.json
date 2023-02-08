@@ -694,16 +694,16 @@
       "name": "A",
       "place": "A",
       "start_date": "Z",
-      "end_date": null,
+      "end_date": "2023/02/08",
       "description": "Z",
       "number_of_turns": 4,
       "current_turn": 1,
-      "in_progress": true,
+      "in_progress": false,
       "turns_list": [
         {
           "name": "Round 1",
           "start_time": "09:39",
-          "end_time": null,
+          "end_time": "18:13",
           "matches": [
             [
               [
@@ -713,7 +713,7 @@
                   "chess_id": "AZ12355",
                   "date_of_birth": "15/15/1515"
                 },
-                0
+                0.5
               ],
               [
                 {
@@ -722,7 +722,7 @@
                   "chess_id": "AZ45784",
                   "date_of_birth": "12/12/2002"
                 },
-                0
+                0.5
               ]
             ],
             [
@@ -733,7 +733,7 @@
                   "chess_id": "AB12346",
                   "date_of_birth": "1991/09/22"
                 },
-                0
+                0.5
               ],
               [
                 {
@@ -741,6 +741,120 @@
                   "surname": "Bon",
                   "chess_id": "AA12345",
                   "date_of_birth": "1994/11/03"
+                },
+                0.5
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0.5
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 2",
+          "start_time": "18:25",
+          "end_time": "18:30",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Nina",
+                  "surname": "Mitsuko",
+                  "chess_id": "AZ45784",
+                  "date_of_birth": "12/12/2002"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0.5
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                1
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "Johnny",
+                  "surname": "La Menace",
+                  "chess_id": "AZ12355",
+                  "date_of_birth": "15/15/1515"
+                },
+                0
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 3",
+          "start_time": "18:30",
+          "end_time": "18:30",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Johnny",
+                  "surname": "La Menace",
+                  "chess_id": "AZ12355",
+                  "date_of_birth": "15/15/1515"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "Nina",
+                  "surname": "Mitsuko",
+                  "chess_id": "AZ45784",
+                  "date_of_birth": "12/12/2002"
                 },
                 0
               ]
@@ -757,12 +871,99 @@
               ],
               [
                 {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                1
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0.5
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 4",
+          "start_time": "18:30",
+          "end_time": "18:30",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                1
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Johnny",
+                  "surname": "La Menace",
+                  "chess_id": "AZ12355",
+                  "date_of_birth": "15/15/1515"
+                },
+                1
+              ]
+            ],
+            [
+              [
+                {
                   "name": "John",
                   "surname": "Bonham",
                   "chess_id": "FF45678",
                   "date_of_birth": "45/78/8956"
                 },
                 0
+              ],
+              [
+                {
+                  "name": "Nina",
+                  "surname": "Mitsuko",
+                  "chess_id": "AZ45784",
+                  "date_of_birth": "12/12/2002"
+                },
+                1
               ]
             ]
           ]
@@ -774,42 +975,42 @@
           "surname": "Balayette",
           "chess_id": "AB12346",
           "date_of_birth": "1991/09/22",
-          "score": 0
+          "score": 2
         },
         {
           "name": "Jean",
           "surname": "Bon",
           "chess_id": "AA12345",
           "date_of_birth": "1994/11/03",
-          "score": 0
+          "score": 2.0
         },
         {
           "name": "John",
           "surname": "Bonham",
           "chess_id": "FF45678",
           "date_of_birth": "45/78/8956",
-          "score": 0
+          "score": 0.5
         },
         {
           "name": "Sylvie",
           "surname": "Culture",
           "chess_id": "AA12346",
           "date_of_birth": "1996/03/21",
-          "score": 0
+          "score": 1
         },
         {
           "name": "Johnny",
           "surname": "La Menace",
           "chess_id": "AZ12355",
           "date_of_birth": "15/15/1515",
-          "score": 0
+          "score": 2
         },
         {
           "name": "Nina",
           "surname": "Mitsuko",
           "chess_id": "AZ45784",
           "date_of_birth": "12/12/2002",
-          "score": 0
+          "score": 1.5
         }
       ]
     }
