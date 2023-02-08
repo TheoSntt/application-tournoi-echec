@@ -46,10 +46,7 @@ class TournamentCreator:
         self.tournamentsController.appController.playersController.players.sort(key=lambda x: x.surname)
         self.add_players(new_tournament, self.tournamentsController.appController.playersController.players)
         self.tournamentsController.write_tournaments_to_json()
-        new_tournament.generate_new_turn()
-
-        # Generating a first turn
-        # new_tournament.generate_new_turn()
+        self.tournamentsController.tournamentModifier.assess(new_tournament)
 
     def add_players(self, tournament, players):
         selected_players = []

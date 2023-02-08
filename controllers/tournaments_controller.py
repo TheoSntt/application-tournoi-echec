@@ -55,7 +55,7 @@ class TournamentsController:
                 if tournament.in_progress:
                     in_progress_list.append(tournament)
             self.view.print_tournaments_for_selection(in_progress_list)
-            self.show_tournament_selector_menu(in_progress_list)
+            self.show_tournament_selector_menu(in_progress_list, modify=True)
         else:
             self.view.print_tournaments_for_selection(self.tournaments)
             self.show_tournament_selector_menu(self.tournaments)

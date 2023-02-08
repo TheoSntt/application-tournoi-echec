@@ -6,6 +6,7 @@ from models.tools.turn_creator import create_turn_from_dict
 from models.app_parameters import appParams
 from random import randrange
 from datetime import datetime
+import math
 
 
 class Tournament:
@@ -39,7 +40,7 @@ class Tournament:
 
     def __str__(self):
         """Used to print tournament name and dates in a list."""
-        if self.end_date is False:
+        if self.end_date is None:
             return f"{self.name}, débuté le {self.start_date}, et encore en cours."
         return f"{self.name}, du {self.start_date} au {self.end_date}"
 
@@ -71,7 +72,10 @@ class Tournament:
         return player_list
 
     def generate_new_turn(self):
-        number_of_match = len(self.players_list)/2
+        try:
+            number_of_match = math.floor(len(self.players_list)/2)
+        except ValueError:
+            print("Problème : le tournoi a un nombre de joueur impair")
         players_list = []
         for player in self.players_list:
             players_list.append(player)
@@ -79,7 +83,7 @@ class Tournament:
         for i in range(number_of_match):
             player1 = players_list.pop(randrange(len(players_list)))
             player2 = players_list.pop(randrange(len(players_list)))
-            matches.append(([player1, 0], [player2, 0]))
+            matches.append(([player1.to_json(), 0], [player2.to_json(), 0]))
         turn_name = f"Round {len(self.turns_list)+1}"
         now = datetime.now()
         turn_start = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
@@ -88,7 +92,7 @@ class Tournament:
                                       "end_time": None,
                                       "matches": matches})
         self.turns_list.append(turn)
-
+        return turn
 
     def to_json(self):
         """Used to write tournament to JSON."""

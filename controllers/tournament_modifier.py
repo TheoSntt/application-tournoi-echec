@@ -1,5 +1,8 @@
 """Define the Tournaments Manager Subcontroller."""
 
+from models.app_parameters import appParams
+from datetime import datetime
+
 
 class TournamentModifier:
     """Tournaments Manager Subcontroller."""
@@ -31,10 +34,45 @@ class TournamentModifier:
             if turn.end_time is None:
                 turn_in_progress = turn
         if turn_in_progress is None:
-            print("Ok, donc le dernier tour est fini. Il faut donc ajouter des tours")
+            print("Ok, donc le dernier tour est fini. Il faut donc ajouter des tours."
+                  "A moins que le tournoi ne soit fini.")
+            if len(tournament.turns_list) == tournament.number_of_turns:
+                print("Le tournoi est terminée. Todo : Faire afficher a la vue que le tournoi est terminé")
+                now = datetime.now()
+                tournament_end = f"{str(now.year)}/{str(now.month).rjust(2, '0')}/{str(now.day).rjust(2, '0')}"
+                tournament.end_date = tournament_end
+                tournament.in_progress = False
+                self.tournamentsController.write_tournaments_to_json()
+                print(repr(tournament))
+                self.tournamentsController.run()
+            else:
+                print("TODO : Faire afficher un truc à la vue genre Oui blabla on crée un nouveau tour.")
+                tournament.generate_new_turn()
+                self.tournamentsController.write_tournaments_to_json()
+                self.assess(tournament)
         else:
-            print("OK, donc on a quitté l'application au milieu d'un tour. On reprend le tour en cours.")
+            self.prompt_for_turn_results(turn_in_progress, tournament)
 
+    def prompt_for_turn_results(self, turn, tournament):
+        """Allow the user to input the result of the matches of a turn"""
+        print("TODO : Faire afficher un récap à la vue sur le tour")
+        print(turn)
+        for match in turn.matches:
+            match_winner = self.view.prompt_for_match_winner(match)
+            if match_winner == "1":
+                match[0][1] = appParams["POINTS_FOR_VICTORY"]
+                match[1][1] = appParams["POINTS_FOR_DEFEAT"]
+            elif match_winner == "2":
+                match[1][1] = appParams["POINTS_FOR_VICTORY"]
+                match[0][1] = appParams["POINTS_FOR_DEFEAT"]
+            elif match_winner == "3":
+                match[1][1] = appParams["POINTS_FOR_TIE"]
+                match[0][1] = appParams["POINTS_FOR_TIE"]
+        now = datetime.now()
+        turn_end = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
+        turn.end_time = turn_end
+        self.tournamentsController.write_tournaments_to_json()
+        self.assess(tournament)
 
     def run(self):
         """Function called by the AppController. Runs the Subcontroller."""

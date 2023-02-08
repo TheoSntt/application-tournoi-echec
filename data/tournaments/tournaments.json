@@ -234,11 +234,11 @@
       "name": "Critérium intercité du Poitou",
       "place": "Velisy-sur-Charentes",
       "start_date": "2023/01/01",
-      "end_date": null,
+      "end_date": "2023/02/18",
       "description": "Pas fou ce tournoi.",
       "number_of_turns": 4,
       "current_turn": 2,
-      "in_progress": true,
+      "in_progress": false,
       "turns_list": [
         {
           "name": "Round 1",
@@ -286,6 +286,147 @@
               ]
             ]
           ]
+        },
+        {
+          "name": "Round 2",
+          "start_time": "17:00",
+          "end_time": "17:04",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Vartan",
+                  "chess_id": "AB12345",
+                  "date_of_birth": "1993/02/16"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "Paul",
+                  "surname": "Pogba",
+                  "chess_id": "AA12347",
+                  "date_of_birth": "1988/01/31"
+                },
+                0.5
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 3",
+          "start_time": "17:04",
+          "end_time": "17:04",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Vartan",
+                  "chess_id": "AB12345",
+                  "date_of_birth": "1993/02/16"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0.5
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "Paul",
+                  "surname": "Pogba",
+                  "chess_id": "AA12347",
+                  "date_of_birth": "1988/01/31"
+                },
+                0.5
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 4",
+          "start_time": "17:04",
+          "end_time": "17:04",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "Paul",
+                  "surname": "Pogba",
+                  "chess_id": "AA12347",
+                  "date_of_birth": "1988/01/31"
+                },
+                0
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Vartan",
+                  "chess_id": "AB12345",
+                  "date_of_birth": "1993/02/16"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0
+              ]
+            ]
+          ]
         }
       ],
       "players_list": [
@@ -320,45 +461,333 @@
       ]
     },
     {
-      "name": "Tournoi Chouettos",
-      "place": "Maubeuge",
-      "start_date": "Aujourd'hui",
-      "end_date": null,
-      "description": "Ce tournoi est un essai de création par l'application.",
-      "number_of_turns": 23,
+      "name": "A",
+      "place": "A",
+      "start_date": "A",
+      "end_date": "2023/02/08",
+      "description": "A",
+      "number_of_turns": 4,
       "current_turn": 1,
-      "in_progress": true,
-      "turns_list": [],
-      "players_list": []
-    },
-    {
-      "name": "John",
-      "place": "Mennecy",
-      "start_date": "12/12/12",
-      "end_date": null,
-      "description": "GFGYZhfuiehfurife",
-      "number_of_turns": 6,
-      "current_turn": 1,
-      "in_progress": true,
-      "turns_list": [],
-      "players_list": []
-    },
-    {
-      "name": "TOurnoi Test",
-      "place": "Ici",
-      "start_date": "Maintenant",
-      "end_date": null,
-      "description": "Cool",
-      "number_of_turns": 5,
-      "current_turn": 1,
-      "in_progress": true,
-      "turns_list": [],
+      "in_progress": false,
+      "turns_list": [
+        {
+          "name": "Round 1",
+          "start_time": "17:25",
+          "end_time": "17:26",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0.5
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0.5
+              ],
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                0.5
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 2",
+          "start_time": "17:26",
+          "end_time": "17:26",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                1
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 3",
+          "start_time": "17:26",
+          "end_time": "17:26",
+          "matches": [
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                1
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0
+              ]
+            ]
+          ]
+        },
+        {
+          "name": "Round 4",
+          "start_time": "17:26",
+          "end_time": "17:26",
+          "matches": [
+            [
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                1
+              ],
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                0
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                1
+              ]
+            ]
+          ]
+        }
+      ],
       "players_list": [
+        {
+          "name": "Colette",
+          "surname": "Balayette",
+          "chess_id": "AB12346",
+          "date_of_birth": "1991/09/22",
+          "score": 0
+        },
         {
           "name": "Jean",
           "surname": "Bon",
           "chess_id": "AA12345",
           "date_of_birth": "1994/11/03",
+          "score": 0
+        },
+        {
+          "name": "John",
+          "surname": "Bonham",
+          "chess_id": "FF45678",
+          "date_of_birth": "45/78/8956",
+          "score": 0
+        },
+        {
+          "name": "Sylvie",
+          "surname": "Culture",
+          "chess_id": "AA12346",
+          "date_of_birth": "1996/03/21",
+          "score": 0
+        }
+      ]
+    },
+    {
+      "name": "A",
+      "place": "A",
+      "start_date": "Z",
+      "end_date": null,
+      "description": "Z",
+      "number_of_turns": 4,
+      "current_turn": 1,
+      "in_progress": true,
+      "turns_list": [
+        {
+          "name": "Round 1",
+          "start_time": "09:39",
+          "end_time": null,
+          "matches": [
+            [
+              [
+                {
+                  "name": "Johnny",
+                  "surname": "La Menace",
+                  "chess_id": "AZ12355",
+                  "date_of_birth": "15/15/1515"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Nina",
+                  "surname": "Mitsuko",
+                  "chess_id": "AZ45784",
+                  "date_of_birth": "12/12/2002"
+                },
+                0
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Colette",
+                  "surname": "Balayette",
+                  "chess_id": "AB12346",
+                  "date_of_birth": "1991/09/22"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "Jean",
+                  "surname": "Bon",
+                  "chess_id": "AA12345",
+                  "date_of_birth": "1994/11/03"
+                },
+                0
+              ]
+            ],
+            [
+              [
+                {
+                  "name": "Sylvie",
+                  "surname": "Culture",
+                  "chess_id": "AA12346",
+                  "date_of_birth": "1996/03/21"
+                },
+                0
+              ],
+              [
+                {
+                  "name": "John",
+                  "surname": "Bonham",
+                  "chess_id": "FF45678",
+                  "date_of_birth": "45/78/8956"
+                },
+                0
+              ]
+            ]
+          ]
+        }
+      ],
+      "players_list": [
+        {
+          "name": "Colette",
+          "surname": "Balayette",
+          "chess_id": "AB12346",
+          "date_of_birth": "1991/09/22",
+          "score": 0
+        },
+        {
+          "name": "Jean",
+          "surname": "Bon",
+          "chess_id": "AA12345",
+          "date_of_birth": "1994/11/03",
+          "score": 0
+        },
+        {
+          "name": "John",
+          "surname": "Bonham",
+          "chess_id": "FF45678",
+          "date_of_birth": "45/78/8956",
           "score": 0
         },
         {
@@ -369,10 +798,17 @@
           "score": 0
         },
         {
-          "name": "Sylvie",
-          "surname": "Vartan",
-          "chess_id": "AB12345",
-          "date_of_birth": "1993/02/16",
+          "name": "Johnny",
+          "surname": "La Menace",
+          "chess_id": "AZ12355",
+          "date_of_birth": "15/15/1515",
+          "score": 0
+        },
+        {
+          "name": "Nina",
+          "surname": "Mitsuko",
+          "chess_id": "AZ45784",
+          "date_of_birth": "12/12/2002",
           "score": 0
         }
       ]

@@ -47,6 +47,15 @@ class TournamentModifierView:
         user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
         return user_choice
 
+    def prompt_for_match_winner(self, match):
+        """Prompt for the winner of a match"""
+        prompt = (f"Saisir le gagnant du match :\n"
+                  f"1 - {str(match[0][0])}\n"
+                  f"2 - {str(match[1][0])}\n"
+                  f"3 - Match nul\n")
+        match_winner = self.get_correct_input(prompt, ["1", "2", "3"])
+        return match_winner
+
     def prompt_selector_menu(self, number_of_tournaments):
         """Prompt the tournament selector menu. Allow to select a tournament in the displayed list."""
         values = self.SELECTOR_MENU_VALUES
