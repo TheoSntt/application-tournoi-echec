@@ -42,12 +42,12 @@ class Player:
 
     def win_a_game(self):
         self.score += appParams['POINTS_FOR_VICTORY']
-        print(f"Yay, {self} won a game !")
+        # print(f"Yay, {self} won a game !")
 
     def tie_a_game(self):
         self.score += appParams['POINTS_FOR_TIE']
-        print(f"Hum, {self} tied !")
+        # print(f"Hum, {self} tied !")
 
     def lose_a_game(self):
         self.score += appParams['POINTS_FOR_DEFEAT']
-        print(f"Yikes, {self} lost a game !")
+        # print(f"Yikes, {self} lost a game !")

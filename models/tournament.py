@@ -104,19 +104,47 @@ class Tournament:
         return player_list
 
     def generate_new_turn(self):
-        try:
-            number_of_match = math.floor(len(self.players_list)/2)
-        except ValueError:
-            print("Problème : le tournoi a un nombre de joueur impair")
+        """Create a new Turn obect. Main feature is to pair the player in the turn matches."""
+        # Generating the matches for the new turn
+        number_of_match = math.floor(len(self.players_list)/2)
+        # Creating a copy of the player list so Players can be pop() from it
         players_list = []
+        self.players_list.sort(key=lambda x: x.score, reverse=True)
         for player in self.players_list:
             players_list.append(player)
+        # Pairing the Players, considering their score, and previous pairings.
         matches = []
         for i in range(number_of_match):
-            player1 = players_list.pop(randrange(len(players_list)))
-            player2 = players_list.pop(randrange(len(players_list)))
-            # matches.append(([player1.to_json(), 0], [player2.to_json(), 0]))
-            matches.append(Match(([player1, None], [player2, None])))
+            # player1 = players_list.pop(randrange(len(players_list)))
+            # player2 = players_list.pop(randrange(len(players_list)))
+            # matches.append(Match(([player1, None], [player2, None])))
+            # Removing the first player (highest score) from the list, in order to find its partner.
+            player1 = players_list.pop(0)
+            # Retrieve the previous adversaries of the player
+            previous_adversaries = []
+            for turn in self.turns_list:
+                for match in turn.matches:
+                    if match[0][0] == player1:
+                        previous_adversaries.append(match[1][0])
+                        break
+                    elif match[1][0] == player1:
+                        previous_adversaries.append(match[0][0])
+                        break
+            # Now looping through the other players to find the highest scoring player not previously faced.
+            perfect_match = None
+            for player in players_list:
+                if player not in previous_adversaries:
+                    perfect_match = players_list.pop(players_list.index(player))
+                    break
+            if perfect_match:
+                # If there is such a match, create it with this perfect pair
+                matches.append(Match(([player1, None], [perfect_match, None])))
+            else:
+                # All the players already faced each other. Pit the 2 highest scores together.
+                player2 = players_list.pop(0)
+                matches.append(Match(([player1, None], [player2, None])))
+
+        # Now that the matches are done, creating the Turn Object itself
         turn_name = f"Round {len(self.turns_list)+1}"
         now = datetime.now()
         turn_start = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"

@@ -82,6 +82,7 @@ class TournamentModifier:
         turn_end = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
         turn.end_time = turn_end
         self.tournamentsController.write_tournaments_to_json()
+        self.view.basic_output("TOUR TERMINE - RECAPITULATIF", turn)
         self.assess(tournament)
 
     def run(self):
