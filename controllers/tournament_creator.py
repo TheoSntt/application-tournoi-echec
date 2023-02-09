@@ -1,27 +1,30 @@
-"""Define the Tournaments Manager Subcontroller."""
+"""Define the Tournament Creation module of the Tournaments Subcontroller."""
 
 from models.tournament import Tournament
+from datetime import datetime
 
 
 class TournamentCreator:
-    """Tournaments Manager Subcontroller."""
+    """Tournament Creation Module."""
     def __init__(self, view, tournamentscontroller):
-        """Has a deck, a list of players and a view."""
+        """Has a view and a reference to the Tournament Controller."""
         self.view = view
         self.tournamentsController = tournamentscontroller
 
     def create_tournament(self):
-        """Main function of the subcontroller. Runs all the steps to create a tournament."""
+        """Main function, called by the Tournaments Controller. Runs all the steps to create a tournament."""
         must_prompt = True
         while must_prompt:
             already_exist = False
             name = self.view.prompt_for_name()
             place = self.view.prompt_for_place()
             start_date = self.view.prompt_for_start_date()
+            if start_date == "a":
+                now = datetime.now()
+                start_date = f"{str(now.year)}/{str(now.month).rjust(2, '0')}/{str(now.day).rjust(2, '0')}"
             for tournament in self.tournamentsController.tournaments:
                 if name == tournament.name and start_date == tournament.start_date and place == tournament.place:
-                    print("Ce tournoi existe déjà :")
-                    print(repr(tournament))
+                    self.view.basic_output("Ce tournoi existe déjà :\n\n", repr(tournament))
                     already_exist = True
             if already_exist:
                 continue
@@ -35,7 +38,7 @@ class TournamentCreator:
                                     end_date=None,
                                     description=tournament["description"],
                                     number_of_turns=tournament["number_of_turns"],
-                                    current_turn=1,
+                                    # current_turn=1,
                                     in_progress=True,
                                     turns_list=[],
                                     players_list=[])
@@ -62,16 +65,16 @@ class TournamentCreator:
                     selected_players.append(players[index])
                 except ValueError:
                     if len(input) == 7:
-                        print("Ok c'est un ID")
+                        # Input is a player ID
                         for player in players:
                             if player.chess_id == input:
                                 selected_players.append(player)
                                 break
                     elif input == "a":
-                        print("Ok sélection finie")
+                        # Selection is over
                         keep_prompting = False
                     else:
-                        print("Problème, mauvais input")
+                        self.view.basic_output("Problème, mauvais input")
                         continue
         tournament.players_list = selected_players
         self.view.prompt_selection_recap(selected_players)

@@ -13,7 +13,7 @@ from views.tournament_creator_view import TournamentCreatorView
 class TournamentsController:
     """Tournaments Manager Subcontroller."""
     def __init__(self, view, appcontroller):
-        """Has a deck, a list of players and a view."""
+        """Has a list of tournaments, a view, a reference to the App Controller, and 2 submodules."""
         self.tournaments: List[Tournament] = []
         self.view = view
         self.appController = appcontroller
@@ -33,7 +33,7 @@ class TournamentsController:
                     end_date=saved_tournament["end_date"],
                     description=saved_tournament["description"],
                     number_of_turns=saved_tournament["number_of_turns"],
-                    current_turn=saved_tournament["current_turn"],
+                    # current_turn=saved_tournament["current_turn"],
                     in_progress=saved_tournament["in_progress"],
                     turns_list=saved_tournament["turns_list"],
                     players_list=saved_tournament["players_list"])

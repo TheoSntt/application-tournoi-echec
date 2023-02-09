@@ -16,7 +16,8 @@ class Tournament:
     """The Tournament Class is the main class of the App Model. It includes all other classes."""
     def __init__(self, name, place, start_date, end_date, description, players_list, turns_list,
                  number_of_turns=appParams['DEFAULT_NUMBER_OF_TURNS'],
-                 current_turn=1, in_progress=True):
+                 # current_turn=1,
+                 in_progress=True):
         """Has a name, place, start and end date, description, number of turns, current turn, in progress."""
         """Has a players_list and a turns_list that include respectively Player objects and Turn objects"""
         self.name = name
@@ -64,7 +65,7 @@ class Tournament:
             self.turns_list.append(turn_object)
 
         self.number_of_turns = number_of_turns
-        self.current_turn = current_turn
+        # self.current_turn = current_turn
         self.in_progress = in_progress
 
         # self.hand: List[Card] = Hand()
@@ -115,7 +116,7 @@ class Tournament:
             player1 = players_list.pop(randrange(len(players_list)))
             player2 = players_list.pop(randrange(len(players_list)))
             # matches.append(([player1.to_json(), 0], [player2.to_json(), 0]))
-            matches.append(Match(([player1, 0], [player2, 0])))
+            matches.append(Match(([player1, None], [player2, None])))
         turn_name = f"Round {len(self.turns_list)+1}"
         now = datetime.now()
         turn_start = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
@@ -124,6 +125,7 @@ class Tournament:
                     end_time=None,
                     matches=matches)
         self.turns_list.append(turn)
+        # self.current_turn += 1
         return turn
 
     def to_json(self):
@@ -134,7 +136,7 @@ class Tournament:
                       "end_date": self.end_date,
                       "description": self.description,
                       "number_of_turns": self.number_of_turns,
-                      "current_turn": self.current_turn,
+                      # "current_turn": self.current_turn,
                       "in_progress": self.in_progress,
                       "turns_list": [],
                       "players_list": []

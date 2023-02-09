@@ -22,7 +22,7 @@ class Turn:
     def __str__(self):
         """Used in print."""
         out_str = ""
-        if self.end_time == 0:
+        if self.end_time is None:
             out_str += f"{self.name}, débuté à {self.start_time}\nEN COURS\n"
         else:
             out_str += f"{self.name} : {self.start_time} - {self.end_time}\n"

@@ -8,8 +8,6 @@ from views.tournaments_view import TournamentsView
 
 class AppController:
     """Main controller."""
-
-    # def __init__(self, deck: Deck, view):
     def __init__(self, view):
         """Has 2 subcontrollers and a view."""
         # subcontrollers

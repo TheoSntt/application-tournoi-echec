@@ -9,7 +9,7 @@ from models.tools.player_creator import create_player_from_dict
 class PlayersController:
     """Players Manager Subcontroller."""
     def __init__(self, view, appcontroller):
-        """Has a deck, a list of players and a view."""
+        """Has a list of players, a view, and a reference to the App Controller."""
         self.players: List[Player] = []
         self.view = view
         self.appController = appcontroller

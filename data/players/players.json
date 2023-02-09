@@ -59,6 +59,12 @@
       "surname": "Vartan",
       "chess_id": "AB12345",
       "date_of_birth": "1993/02/16"
+    },
+    {
+      "name": "John",
+      "surname": "Fibonacci",
+      "chess_id": "ID78451",
+      "date_of_birth": "12/12/2004"
     }
   ]
 }
