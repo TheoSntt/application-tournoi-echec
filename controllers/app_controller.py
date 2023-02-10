@@ -26,9 +26,9 @@ class AppController:
     def show_main_menu(self):
         """Show the App Main Menu and handle the user choice."""
         main_menu_user_choice = self.view.prompt_main_menu()
-        if main_menu_user_choice == 1:
+        if main_menu_user_choice == "1":
             self.playersController.run()
-        elif main_menu_user_choice == 2:
+        elif main_menu_user_choice == "2":
             self.tournamentsController.run()
         else:
             return

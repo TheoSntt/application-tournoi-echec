@@ -16,7 +16,7 @@ class Tournament:
     """The Tournament Class is the main class of the App Model. It includes all other classes."""
     def __init__(self, name, place, start_date, end_date, description, players_list, turns_list,
                  number_of_turns=appParams['DEFAULT_NUMBER_OF_TURNS'],
-                 # current_turn=1,
+                 current_turn=0,
                  in_progress=True):
         """Has a name, place, start and end date, description, number of turns, current turn, in progress."""
         """Has a players_list and a turns_list that include respectively Player objects and Turn objects"""
@@ -65,7 +65,7 @@ class Tournament:
             self.turns_list.append(turn_object)
 
         self.number_of_turns = number_of_turns
-        # self.current_turn = current_turn
+        self.current_turn = current_turn
         self.in_progress = in_progress
 
         # self.hand: List[Card] = Hand()

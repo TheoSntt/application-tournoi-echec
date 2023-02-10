@@ -18,11 +18,7 @@ class View(ABC):
     def get_correct_input(self, prompt, accepted_values):
         """Prompt a menu and verifies that the user input is one of the accepted values."""
         while True:
-            try:
-                value = int(input(prompt))
-            except ValueError:
-                print("Veuillez choisir une des options proposées.")
-                continue
+            value = input(prompt)
             if value not in accepted_values:
                 print("Veuillez choisir une des options proposées.")
                 continue

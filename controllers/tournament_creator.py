@@ -38,7 +38,7 @@ class TournamentCreator:
                                     end_date=None,
                                     description=tournament["description"],
                                     number_of_turns=tournament["number_of_turns"],
-                                    # current_turn=1,
+                                    current_turn=0,
                                     in_progress=True,
                                     turns_list=[],
                                     players_list=[])

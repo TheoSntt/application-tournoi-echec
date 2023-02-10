@@ -57,7 +57,7 @@ class TournamentModifier:
         """Allow the user to input the result of the matches of a turn"""
         self.view.basic_output(turn)
         for match in turn.matches:
-            if match[0][1] is None and match[1][1]  is None:
+            if match[0][1] is None and match[1][1] is None:
                 # The match results are not set
                 match_winner = self.view.prompt_for_match_winner(match)
                 if match_winner == "1":
@@ -81,6 +81,7 @@ class TournamentModifier:
         now = datetime.now()
         turn_end = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
         turn.end_time = turn_end
+        tournament.current_turn += 1
         self.tournamentsController.write_tournaments_to_json()
         self.view.basic_output("TOUR TERMINE - RECAPITULATIF", turn)
         self.assess(tournament)

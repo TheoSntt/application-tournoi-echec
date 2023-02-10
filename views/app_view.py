@@ -11,7 +11,7 @@ class AppView(View):
                                  "1 - Gestion des joueurs\n"
                                  "2 - Gestion des tournois\n"
                                  "3 - Quitter l'application\n")
-        self.MAIN_MENU_VALUES = [1, 2, 3]
+        self.MAIN_MENU_VALUES = ["1", "2", "3"]
 
     def prompt_main_menu(self):
         """Prompt the app Main Menu."""
