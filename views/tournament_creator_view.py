@@ -1,8 +1,10 @@
 """View : View for the Tournament Creation Module of the Tournaments Controller."""
 
 from models.app_parameters import appParams
+from views.ABC_view import View
 
-class TournamentCreatorView:
+
+class TournamentCreatorView(View):
     """View for the Tournament Creation Module."""
     def __init__(self):
         """Menus prompts are declared here."""
@@ -14,17 +16,6 @@ class TournamentCreatorView:
         self.PLAYER_SELECTION_PROMPT = ("Saisir le numéro d'un joueur dans la liste ou son identifiant d'échec\n"
                                         "Vous pouvez en sélectionner plusieurs, séparés par des espaces\n"
                                         "Une fois votre sélection terminée, taper a\n")
-
-    def get_correct_input(self, prompt, accepted_values):
-        """Prompt a menu and verifies that the user input is one of the accepted values."""
-        while True:
-            value = input(prompt)
-            if value not in accepted_values:
-                print("Veuillez choisir une des options proposées.")
-                continue
-            else:
-                break
-        return value
 
     def prompt_for_name(self):
         """Prompt for the name of the tournament"""
@@ -74,17 +65,7 @@ class TournamentCreatorView:
         tournament["number_of_turns"] = number_of_turns
         return tournament
 
-    def pretty_print_decorator(function):
-        """Decorator for printing functions."""
-        def wrapper(*args, **kwargs):
-            print("_________________________")
-            function(*args, **kwargs)
-            print("_________________________")
-            print()
-
-        return wrapper
-
-    @pretty_print_decorator
+    @View.pretty_print_decorator
     def print_players_for_selection(self, players):
         """Print the list of players in the app to allow the user to add them to the tournament"""
         i = 1
@@ -92,7 +73,7 @@ class TournamentCreatorView:
             print(f"{i} - {str(player)}")
             i += 1
 
-    @pretty_print_decorator
+    @View.pretty_print_decorator
     def prompt_selection_recap(self, selected_players):
         """Once player selection is over, print a recap of the selected players"""
         if len(selected_players) != 0:
@@ -101,15 +82,3 @@ class TournamentCreatorView:
                 print(player)
         else:
             print("AUCUN JOUEUR SELECTIONNE.")
-
-    @pretty_print_decorator
-    def basic_output(self, *args):
-        """Basic information printing function."""
-        for arg in args:
-            if type(arg) is list:
-                for element in arg:
-                    print(element)
-            else:
-                print(arg)
-
-

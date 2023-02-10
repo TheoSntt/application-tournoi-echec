@@ -1,7 +1,9 @@
 """View : View for the Tournaments Manager SubController."""
 
+from views.ABC_view import View
 
-class TournamentsView:
+
+class TournamentsView(View):
     """View for the Tournaments Manager SubController."""
     def __init__(self):
         """Menus prompts are declared here."""
@@ -31,17 +33,6 @@ class TournamentsView:
                                                     "2 - Retour au menu des tournois\n")
         self.TOURNAMENT_MODIFYING_OPTIONS_VALUES = ["1", "2"]
 
-    def get_correct_input(self, prompt, accepted_values):
-        """Prompt a menu and verifies that the user input is one of the accepted values."""
-        while True:
-            value = input(prompt)
-            if value not in accepted_values:
-                print("Veuillez choisir une des options proposées.")
-                continue
-            else:
-                break
-        return value
-
     def prompt_main_menu(self):
         """Prompt the Tournaments Manager Main Menu."""
         user_choice = self.get_correct_input(self.MAIN_MENU_PROMPT, self.MAIN_MENU_VALUES)
@@ -68,27 +59,7 @@ class TournamentsView:
                                              self.TOURNAMENT_MODIFYING_OPTIONS_VALUES)
         return user_choice
 
-    def pretty_print_decorator(function):
-        """Decorator for printing functions."""
-        def wrapper(*args, **kwargs):
-            print("_________________________")
-            function(*args, **kwargs)
-            print("_________________________")
-            print()
-
-        return wrapper
-
-    @pretty_print_decorator
-    def basic_output(self, *args):
-        """Basic information printing function."""
-        for arg in args:
-            if type(arg) is list:
-                for element in arg:
-                    print(element)
-            else:
-                print(arg)
-
-    @pretty_print_decorator
+    @View.pretty_print_decorator
     def print_tournaments_for_selection(self, tournaments_list, in_progress=False):
         """List all tournaments, with numbering to allow the user to select one in the list."""
         tournaments_list.sort(key=lambda x: x.start_date)
@@ -102,12 +73,12 @@ class TournamentsView:
             print(f"{i} - {tournament}")
             i += 1
 
-    @pretty_print_decorator
+    @View.pretty_print_decorator
     def print_tournament_details(self, tournament):
         """Display all the information of a tournament in a readable way."""
         print(repr(tournament))
 
-    @pretty_print_decorator
+    @View.pretty_print_decorator
     def print_all_players(self, player_list, show_detail=False):
         """Display a list of all players, in a compact or detailed way."""
         if show_detail:

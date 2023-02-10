@@ -1,7 +1,9 @@
 """View : View for the Players Manager SubController."""
 
+from views.ABC_view import View
 
-class PlayersView:
+
+class PlayersView(View):
     """View for the Players Manager SubController."""
     def __init__(self):
         """Menus prompts are declared here."""
@@ -11,21 +13,6 @@ class PlayersView:
                                  "3 - Ajouter un nouveau joueur\n"
                                  "4 - Retour au menu principal\n")
         self.MAIN_MENU_VALUES = [1, 2, 3, 4]
-
-    def get_correct_input(self, prompt, accepted_values):
-        """Prompt a menu and verifies that the user input is one of the accepted values."""
-        while True:
-            try:
-                value = int(input(prompt))
-            except ValueError:
-                print("Veuillez choisir une des options proposées.")
-                continue
-            if value not in accepted_values:
-                print("Veuillez choisir une des options proposées.")
-                continue
-            else:
-                break
-        return value
 
     def prompt_main_menu(self):
         """Prompt the Players Manager Main Menu."""
@@ -45,25 +32,6 @@ class PlayersView:
                 break
         return value
 
-    def pretty_print_decorator(function):
-        """Decorator for printing functions."""
-        def wrapper(*args, **kwargs):
-            print("_________________________")
-            function(*args, **kwargs)
-            print("_________________________")
-            print()
-
-        return wrapper
-
-    @pretty_print_decorator
-    def basic_output(self, *args):
-        """Basic information printing function."""
-        for arg in args:
-            if type(arg) is list:
-                print(a for a in arg)
-            else:
-                print(arg)
-
     def prompt_for_player(self, chess_id):
         """Once the unicity of the new player's chess id has been established,
         prompts for the rest of the information."""
@@ -75,7 +43,7 @@ class PlayersView:
                 "chess_id": chess_id,
                 "date_of_birth": date_of_birth}
 
-    @pretty_print_decorator
+    @View.pretty_print_decorator
     def print_all_players(self, player_list, show_detail=False):
         """Display a list of all players, in a compact or detailed way."""
         if show_detail:
