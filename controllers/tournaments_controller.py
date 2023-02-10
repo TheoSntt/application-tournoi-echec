@@ -60,15 +60,6 @@ class TournamentsController:
             self.view.print_tournaments_for_selection(self.tournaments)
             self.show_tournament_selector_menu(self.tournaments)
 
-    # def show_tournaments_in_progress(self):
-    #     """Display all tournament in progress for user to select one to continue."""
-    #     in_progress_list = []
-    #     for tournament in self.tournaments:
-    #         if tournament.in_progress:
-    #             in_progress_list.append(tournament)
-    #     self.view.print_tournaments_for_selection(in_progress_list, in_progress=True)
-    #     self.show_tournament_selector_menu(len(self.tournaments), modify=True)
-
     def create_new_tournament(self):
         """Handle the creation of a new tournament in the data."""
         self.tournamentCreator.create_tournament()
@@ -117,8 +108,6 @@ class TournamentsController:
         elif options_user_choice == "2":
             self.show_tournament_details(tournament)
         elif options_user_choice == "3":
-            print("Menu de modification d'un tournoi à faire")
-        elif options_user_choice == "4":
             self.show_main_menu()
 
     def show_main_menu(self):

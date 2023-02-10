@@ -23,9 +23,8 @@ class TournamentsView(View):
                                           "<>\n"
                                           "1 - Lister les participants par ordre alphabétique\n"
                                           "2 - Afficher toutes les informations sur le tournoi\n"
-                                          "3 - Modifier le tournoi\n"
-                                          "4 - Retour au menu des tournois\n")
-        self.TOURNAMENT_OPTIONS_VALUES = ["1", "2", "3", "4"]
+                                          "3 - Retour au menu des tournois\n")
+        self.TOURNAMENT_OPTIONS_VALUES = ["1", "2", "3"]
 
         self.TOURNAMENT_MODIFYING_OPTIONS_PROMPT = ("Tournoi sélectionné :\n"
                                                     "<>\n"
