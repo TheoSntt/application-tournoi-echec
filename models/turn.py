@@ -13,11 +13,6 @@ class Turn:
         self.start_time = start_time
         self.end_time = end_time
         self.matches = matches
-        # self.matches = []
-        # for match in matches:
-        #     match_object = create_match_from_list(match)
-        #     self.matches.append(match_object)
-
 
     def __str__(self):
         """Used in print."""
@@ -42,4 +37,3 @@ class Turn:
             turn['matches'].append(match.to_json())
 
         return turn
-

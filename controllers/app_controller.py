@@ -38,4 +38,3 @@ class AppController:
         self.playersController.get_players()
         self.tournamentsController.get_tournaments()
         self.show_main_menu()
-

@@ -1,6 +1,6 @@
 """Abstract class for views. Implement the functions all views use throughout the app."""
 
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class View(ABC):
@@ -35,4 +35,3 @@ class View(ABC):
                     print(element)
             else:
                 print(arg)
-

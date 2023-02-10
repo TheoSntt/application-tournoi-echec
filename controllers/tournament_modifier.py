@@ -89,6 +89,3 @@ class TournamentModifier:
     def run(self):
         """Function called by the AppController. Runs the Subcontroller."""
         pass
-
-
-

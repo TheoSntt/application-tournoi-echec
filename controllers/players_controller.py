@@ -96,4 +96,3 @@ class PlayersController:
     def run(self):
         """Function called by the AppController. Runs the Subcontroller."""
         self.show_main_menu()
-

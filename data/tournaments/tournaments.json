@@ -7,6 +7,7 @@
       "end_date": "2022/12/31",
       "description": "Chouette tournoi, seulement 1 mort.",
       "number_of_turns": 4,
+      "current_turn": 4,
       "in_progress": false,
       "turns_list": [
         {
@@ -235,7 +236,8 @@
       "start_date": "2023/01/01",
       "end_date": null,
       "description": "Pas fou ce tournoi.",
-      "number_of_turns": 3,
+      "number_of_turns": 4,
+      "current_turn": 3,
       "in_progress": true,
       "turns_list": [
         {

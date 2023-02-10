@@ -59,4 +59,3 @@ class PlayersView(View):
             print()
             for player in player_list:
                 print(player)
-

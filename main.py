@@ -5,7 +5,7 @@ from views.app_view import AppView
 
 
 def main():
-    """Main function. This function runs the app."""
+    """Main function. This function creates the app Controller and its view, then run it."""
     view = AppView()
     session = AppController(view)
     session.run()

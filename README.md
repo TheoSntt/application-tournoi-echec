@@ -15,7 +15,7 @@ git clone <URL du repo>
 ```
 2. Créez un environnement virtuel Python en exécutant la commande suivantes dans le Terminal de votre choix :
 ```
-python -m venv <environment name>
+python -m venv env (env étant le nom de l'environnement, vous pouvez le changer)
 ```
 Puis, toujours dans le terminal, activez votre environnement avec la commande suivante si vous êtes sous Linux :
 ```
@@ -31,8 +31,11 @@ pip install -r requirements.txt
 ```
 4. Vous pouvez maintenant exécuter l'application, soit à l'aide de l'IDE de votre choix, soit directement depuis le Terminal, à l'aide de la commande suivante :
 ```		
-python script.py
+python main.py
 ```
-NB :
+NB : Pour générer un nouveau rapport flake8 vous confirmant que le code est conforme à la PEP8, utilisez la commande suivante :
+```		
+flake8 --exclude=env --max-line-length=119 --format=html --htmldir=<nom du rapport à générer>
+```
 
 

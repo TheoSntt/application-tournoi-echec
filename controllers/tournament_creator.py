@@ -80,13 +80,9 @@ class TournamentCreator:
         self.view.prompt_selection_recap(selected_players)
 
     def player_selection_process(self, players):
-        selected_players = []
         while True:
             self.view.prompt_for_players_selection()
 
     def run(self):
         """Function called by the AppController. Runs the Subcontroller."""
         pass
-
-
-

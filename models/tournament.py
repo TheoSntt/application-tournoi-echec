@@ -1,11 +1,9 @@
 """Define the Tournament Object."""
 
 
-# from models.tools.player_creator import create_player_from_dict
 from models.player import Player
 from models.turn import Turn
 from models.match import Match
-# from models.tools.turn_creator import create_turn_from_dict
 from models.app_parameters import appParams
 from random import randrange
 from datetime import datetime
@@ -28,7 +26,6 @@ class Tournament:
         # Generate the Player list
         self.players_list = []
         for player in players_list:
-            # player_object = create_player_from_dict(player)
             player_object = Player(name=player["name"],
                                    surname=player["surname"],
                                    chess_id=player["chess_id"],
@@ -57,7 +54,6 @@ class Tournament:
                 match_object = Match(([player1, match[0][1]], [player2, match[1][1]]))
                 matches_list.append(match_object)
             # We can now create the Turn object, including Match objects including Players objects
-            # turn_object = create_turn_from_dict(turn)
             turn_object = Turn(name=turn["name"],
                                start_time=turn["start_time"],
                                end_time=turn["end_time"],
@@ -67,8 +63,6 @@ class Tournament:
         self.number_of_turns = number_of_turns
         self.current_turn = current_turn
         self.in_progress = in_progress
-
-        # self.hand: List[Card] = Hand()
 
     def __str__(self):
         """Used to print tournament name and dates in a list."""
@@ -84,13 +78,13 @@ class Tournament:
         else:
             tournament_str += f"{self.name.capitalize()}\nDu {self.start_date} au {self.end_date}\n"
         tournament_str += self.description
-        tournament_str += f"\n\nLISTE DES JOUEURS :\n"
+        tournament_str += "\n\nLISTE DES JOUEURS :\n"
         i = 1
         self.players_list.sort(key=lambda x: x.score, reverse=True)
         for player in self.players_list:
             tournament_str += f"{i} - {str(player)} - Score final : {player.score}\n"
             i += 1
-        tournament_str += f"\n\nLISTE DES TOURS DE JEU :\n"
+        tournament_str += "\n\nLISTE DES TOURS DE JEU :\n"
         for turn in self.turns_list:
             tournament_str += f"{str(turn)}\n"
         return tournament_str
@@ -112,37 +106,42 @@ class Tournament:
         self.players_list.sort(key=lambda x: x.score, reverse=True)
         for player in self.players_list:
             players_list.append(player)
-        # Pairing the Players, considering their score, and previous pairings.
         matches = []
-        for i in range(number_of_match):
-            # player1 = players_list.pop(randrange(len(players_list)))
-            # player2 = players_list.pop(randrange(len(players_list)))
-            # matches.append(Match(([player1, None], [player2, None])))
-            # Removing the first player (highest score) from the list, in order to find its partner.
-            player1 = players_list.pop(0)
-            # Retrieve the previous adversaries of the player
-            previous_adversaries = []
-            for turn in self.turns_list:
-                for match in turn.matches:
-                    if match[0][0] == player1:
-                        previous_adversaries.append(match[1][0])
-                        break
-                    elif match[1][0] == player1:
-                        previous_adversaries.append(match[0][0])
-                        break
-            # Now looping through the other players to find the highest scoring player not previously faced.
-            perfect_match = None
-            for player in players_list:
-                if player not in previous_adversaries:
-                    perfect_match = players_list.pop(players_list.index(player))
-                    break
-            if perfect_match:
-                # If there is such a match, create it with this perfect pair
-                matches.append(Match(([player1, None], [perfect_match, None])))
-            else:
-                # All the players already faced each other. Pit the 2 highest scores together.
-                player2 = players_list.pop(0)
+        # Testing if the players have scores already or if it is the first match
+        if players_list[0].score == 0:
+            # In the situation where everyone's score is 0. Pair the player randomly.
+            for i in range(number_of_match):
+                player1 = players_list.pop(randrange(len(players_list)))
+                player2 = players_list.pop(randrange(len(players_list)))
                 matches.append(Match(([player1, None], [player2, None])))
+        else:
+            # It isn't the first match. Pairing the Players, considering their score, and previous pairings.
+            for i in range(number_of_match):
+                # Removing the first player (the highest score) from the list, in order to find its partner.
+                player1 = players_list.pop(0)
+                # Retrieve the previous adversaries of the player
+                previous_adversaries = []
+                for turn in self.turns_list:
+                    for match in turn.matches:
+                        if match[0][0] == player1:
+                            previous_adversaries.append(match[1][0])
+                            break
+                        elif match[1][0] == player1:
+                            previous_adversaries.append(match[0][0])
+                            break
+                # Now looping through the other players to find the highest scoring player not previously faced.
+                perfect_match = None
+                for player in players_list:
+                    if player not in previous_adversaries:
+                        perfect_match = players_list.pop(players_list.index(player))
+                        break
+                if perfect_match:
+                    # If there is such a match, create it with this perfect pair
+                    matches.append(Match(([player1, None], [perfect_match, None])))
+                else:
+                    # All the players already faced each other. Pit the 2 highest scores together.
+                    player2 = players_list.pop(0)
+                    matches.append(Match(([player1, None], [player2, None])))
 
         # Now that the matches are done, creating the Turn Object itself
         turn_name = f"Round {len(self.turns_list)+1}"

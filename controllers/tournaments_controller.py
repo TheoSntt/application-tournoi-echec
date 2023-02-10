@@ -2,7 +2,6 @@
 
 import json
 from typing import List
-from pprint import pprint
 from models.tournament import Tournament
 from controllers.tournament_modifier import TournamentModifier
 from controllers.tournament_creator import TournamentCreator
@@ -129,6 +128,3 @@ class TournamentsController:
     def run(self):
         """Function called by the AppController. Runs the Subcontroller."""
         self.show_main_menu()
-
-
-
