@@ -4,7 +4,7 @@
 from models.player import Player
 from models.turn import Turn
 from models.match import Match
-from models.app_parameters import appParams
+from models.appparameters import appParams
 from random import randrange
 from datetime import datetime
 import math

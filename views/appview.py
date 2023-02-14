@@ -1,6 +1,6 @@
 """Main View : View for the App Controller."""
 
-from views.ABC_view import View
+from views.abcview import View
 
 
 class AppView(View):

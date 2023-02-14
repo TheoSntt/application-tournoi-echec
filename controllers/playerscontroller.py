@@ -3,7 +3,6 @@
 import json
 from typing import List
 from models.player import Player
-from models.tools.player_creator import create_player_from_dict
 
 
 class PlayersController:
@@ -14,13 +13,28 @@ class PlayersController:
         self.view = view
         self.appController = appcontroller
 
+    def create_player_from_dict(self, player_dict):
+        """Create a Player object from a dict, imported from JSON"""
+        if "score" in player_dict:
+            player = Player(name=player_dict["name"],
+                            surname=player_dict["surname"],
+                            chess_id=player_dict["chess_id"],
+                            date_of_birth=player_dict["date_of_birth"],
+                            score=player_dict["score"])
+        else:
+            player = Player(name=player_dict["name"],
+                            surname=player_dict["surname"],
+                            chess_id=player_dict["chess_id"],
+                            date_of_birth=player_dict["date_of_birth"])
+        return player
+
     def get_players(self):
         """Retrieve the players stored in JSON and add them to the Controller"""
         with open('data/players/players.json', encoding='utf-8') as f:
             json_content = json.load(f)
             saved_players = json_content["players"]
             for saved_player in saved_players:
-                player = create_player_from_dict(saved_player)
+                player = self.create_player_from_dict(saved_player)
                 self.players.append(player)
         # for player in self.players:
         #     print(player)
@@ -33,14 +47,6 @@ class PlayersController:
         # pprint(to_write_players)
         with open('data/players/players.json', 'w', encoding='utf-8') as f:
             json.dump(to_write_players, f, ensure_ascii=False, indent=2)
-
-    def just_add_a_player(self, name, surname, chess_id, date_of_birth):
-        """Was a test function : TO REMOVE"""
-        player = create_player_from_dict({"name": name,
-                                          "surname": surname,
-                                          "chess_id": chess_id,
-                                          "date_of_birth": date_of_birth})
-        self.players.append(player)
 
     def create_new_player(self):
         """Handle the creation of a new player in the data"""
@@ -61,7 +67,7 @@ class PlayersController:
         player = self.view.prompt_for_player(chess_id)
 
         if player:
-            new_player = create_player_from_dict(player)
+            new_player = self.create_player_from_dict(player)
             self.players.append(new_player)
             self.write_players_to_json()
             # print("Nouveau joueur ajouté :")
@@ -84,13 +90,13 @@ class PlayersController:
     def show_main_menu(self):
         """Show the Tournament Manager Main Menu and handle the user choice."""
         main_menu_user_choice = self.view.prompt_main_menu()
-        if main_menu_user_choice == 1:
+        if main_menu_user_choice == "1":
             self.print_all_players()
-        elif main_menu_user_choice == 2:
+        elif main_menu_user_choice == "2":
             self.print_all_players(show_detail=True)
-        elif main_menu_user_choice == 3:
+        elif main_menu_user_choice == "3":
             self.create_new_player()
-        elif main_menu_user_choice == 4:
+        elif main_menu_user_choice == "4":
             self.appController.show_main_menu()
 
     def run(self):

@@ -1,6 +1,6 @@
 """View : View for the Players Manager SubController."""
 
-from views.ABC_view import View
+from views.abcview import View
 
 
 class PlayersView(View):
@@ -12,7 +12,7 @@ class PlayersView(View):
                                  "2 - Lister tous les détails de tous les joueurs\n"
                                  "3 - Ajouter un nouveau joueur\n"
                                  "4 - Retour au menu principal\n")
-        self.MAIN_MENU_VALUES = [1, 2, 3, 4]
+        self.MAIN_MENU_VALUES = ["1", "2", "3", "4"]
 
     def prompt_main_menu(self):
         """Prompt the Players Manager Main Menu."""
@@ -25,8 +25,6 @@ class PlayersView(View):
             value = input("Saisir l'identifiant d'échec du joueur : ")
             if len(value) != 7:
                 print("L'identifiant n'a pas le format correct : AA12345.")
-                print(value[2:])
-                print(value[:2])
                 continue
             else:
                 break

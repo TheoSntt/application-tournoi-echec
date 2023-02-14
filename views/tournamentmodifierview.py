@@ -1,6 +1,6 @@
 """View : View for the Tournament Modification Module of the Tournaments Controller."""
 
-from views.ABC_view import View
+from views.abcview import View
 
 
 class TournamentModifierView(View):

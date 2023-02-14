@@ -3,10 +3,10 @@
 import json
 from typing import List
 from models.tournament import Tournament
-from controllers.tournament_modifier import TournamentModifier
-from controllers.tournament_creator import TournamentCreator
-from views.tournament_modifier_view import TournamentModifierView
-from views.tournament_creator_view import TournamentCreatorView
+from controllers.tournamentmodifier import TournamentModifier
+from controllers.tournamentcreator import TournamentCreator
+from views.tournamentmodifierview import TournamentModifierView
+from views.tournamentcreatorview import TournamentCreatorView
 
 
 class TournamentsController:

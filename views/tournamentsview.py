@@ -1,6 +1,6 @@
 """View : View for the Tournaments Manager SubController."""
 
-from views.ABC_view import View
+from views.abcview import View
 
 
 class TournamentsView(View):

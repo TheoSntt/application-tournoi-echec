@@ -1,6 +1,6 @@
 """Define the Tournament modification Module of the Tournaments Controller."""
 
-from models.app_parameters import appParams
+from models.appparameters import appParams
 from datetime import datetime
 
 

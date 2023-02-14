@@ -1,6 +1,6 @@
 """Define the Player Object."""
 
-from models.app_parameters import appParams
+from models.appparameters import appParams
 
 
 class Player:

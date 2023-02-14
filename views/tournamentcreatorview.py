@@ -1,7 +1,7 @@
 """View : View for the Tournament Creation Module of the Tournaments Controller."""
 
-from models.app_parameters import appParams
-from views.ABC_view import View
+from models.appparameters import appParams
+from views.abcview import View
 
 
 class TournamentCreatorView(View):

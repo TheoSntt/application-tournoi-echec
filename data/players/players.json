@@ -25,6 +25,12 @@
       "date_of_birth": "1996/03/21"
     },
     {
+      "name": "John",
+      "surname": "Fibonacci",
+      "chess_id": "ID78451",
+      "date_of_birth": "12/12/2004"
+    },
+    {
       "name": "Johnny",
       "surname": "La Menace",
       "chess_id": "AZ12355",
@@ -61,10 +67,10 @@
       "date_of_birth": "1993/02/16"
     },
     {
-      "name": "John",
-      "surname": "Fibonacci",
-      "chess_id": "ID78451",
-      "date_of_birth": "12/12/2004"
+      "name": "Francois",
+      "surname": "LeFrance",
+      "chess_id": "ID99999",
+      "date_of_birth": "12/15/1666"
     }
   ]
 }

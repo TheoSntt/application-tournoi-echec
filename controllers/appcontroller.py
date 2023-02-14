@@ -1,9 +1,9 @@
 """Define the main controller : the one that runs the app."""
 
-from controllers.players_controller import PlayersController
-from controllers.tournaments_controller import TournamentsController
-from views.players_view import PlayersView
-from views.tournaments_view import TournamentsView
+from controllers.playerscontroller import PlayersController
+from controllers.tournamentscontroller import TournamentsController
+from views.playersview import PlayersView
+from views.tournamentsview import TournamentsView
 
 
 class AppController:
