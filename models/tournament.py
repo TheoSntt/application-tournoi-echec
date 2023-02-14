@@ -163,7 +163,7 @@ class Tournament:
                       "end_date": self.end_date,
                       "description": self.description,
                       "number_of_turns": self.number_of_turns,
-                      # "current_turn": self.current_turn,
+                      "current_turn": self.current_turn,
                       "in_progress": self.in_progress,
                       "turns_list": [],
                       "players_list": []

@@ -1,76 +1,40 @@
 {
   "players": [
     {
-      "name": "Colette",
-      "surname": "Balayette",
-      "chess_id": "AB12346",
-      "date_of_birth": "1991/09/22"
-    },
-    {
       "name": "Jean",
-      "surname": "Bon",
+      "surname": "Demo",
+      "chess_id": "AB12346",
+      "date_of_birth": "01/05/1991"
+    },
+    {
+      "name": "Pierre",
+      "surname": "Test",
       "chess_id": "AA12345",
-      "date_of_birth": "1994/11/03"
-    },
-    {
-      "name": "John",
-      "surname": "Bonham",
-      "chess_id": "FF45678",
-      "date_of_birth": "45/78/8956"
-    },
-    {
-      "name": "Sylvie",
-      "surname": "Culture",
-      "chess_id": "AA12346",
-      "date_of_birth": "1996/03/21"
-    },
-    {
-      "name": "John",
-      "surname": "Fibonacci",
-      "chess_id": "ID78451",
-      "date_of_birth": "12/12/2004"
-    },
-    {
-      "name": "Johnny",
-      "surname": "La Menace",
-      "chess_id": "AZ12355",
-      "date_of_birth": "15/15/1515"
-    },
-    {
-      "name": "Nina",
-      "surname": "Mitsuko",
-      "chess_id": "AZ45784",
-      "date_of_birth": "12/12/2002"
-    },
-    {
-      "name": "Bob",
-      "surname": "Morane",
-      "chess_id": "AZ23568",
-      "date_of_birth": "19/12/1245"
+      "date_of_birth": "01/11/1994"
     },
     {
       "name": "Paul",
-      "surname": "Pogba",
+      "surname": "Demonstration",
       "chess_id": "AA12347",
-      "date_of_birth": "1988/01/31"
+      "date_of_birth": "01/01/1994"
     },
     {
-      "name": "Théo",
-      "surname": "Sinatti",
-      "chess_id": "GH99999",
-      "date_of_birth": "07/02/1994"
+      "name": "Marie",
+      "surname": "Debug",
+      "chess_id": "FF45678",
+      "date_of_birth": "01/12/2001"
     },
     {
-      "name": "Sylvie",
-      "surname": "Vartan",
-      "chess_id": "AB12345",
-      "date_of_birth": "1993/02/16"
+      "name": "Celine",
+      "surname": "Presentation",
+      "chess_id": "AA12346",
+      "date_of_birth": "01/03/1996"
     },
     {
-      "name": "Francois",
-      "surname": "LeFrance",
-      "chess_id": "ID99999",
-      "date_of_birth": "12/15/1666"
+      "name": "Julie",
+      "surname": "Demonstr",
+      "chess_id": "AA12349",
+      "date_of_birth": "01/09/1996"
     }
   ]
 }

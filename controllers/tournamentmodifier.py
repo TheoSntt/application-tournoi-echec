@@ -77,6 +77,7 @@ class TournamentModifier:
                     match[1][1] = appParams["POINTS_FOR_TIE"]
                 elif match_winner == "4":
                     self.tournamentsController.run()
+                    return
                 self.tournamentsController.write_tournaments_to_json()
         now = datetime.now()
         turn_end = f"{str(now.hour).rjust(2, '0')}:{str(now.minute).rjust(2, '0')}"
