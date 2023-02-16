@@ -4,7 +4,7 @@
 
 ## Avertissements
 
-Cette application s'exécute dans la console et permet de gérer des tournois d'échecs.
+Cette application s'exécute dans la console et permet de gérer des tournois d'échecs. 
 Son développement respecte le Design Pattern MVC (modèle vue controleur)  
 
 ## Mise en place et exécution de l'application
@@ -33,6 +33,9 @@ pip install -r requirements.txt
 ```		
 python main.py
 ```
+5. L'application se compose d'une suite de menu successif, chaque menu indiquant les actions possibles. Les différentes actions s'éxécutent en tapant un caractère dans la console puis la touche Entrée. 
+ 
+ 
 NB : Pour générer un nouveau rapport flake8 vous confirmant que le code est conforme à la PEP8, utilisez la commande suivante :
 ```		
 flake8 --exclude=env --max-line-length=119 --format=html --htmldir=<nom du rapport à générer>
