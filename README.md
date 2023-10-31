@@ -2,10 +2,11 @@
 # APPLICATION DE GESTION DE TOURNOIS D'ECHEC
 
 
-## Avertissements
+## Description du projet
 
-Cette application s'exécute dans la console et permet de gérer des tournois d'échecs. 
-Son développement respecte le Design Pattern MVC (modèle vue controleur)  
+Cette application en ligne de commande est un projet réalisé dans le cadre de ma formation Développeur Python sur OpenClassrooms.  
+Ce projet avait pour but de nous initier à différents Design Patterns et notamment le MVC (modèle vue controleur). C'est le premier projet de la formation où la POO est utilisée.  
+Au niveau fonctionnel, l'application a une interface en ligne de commande, et permet de créer et gérer des tournois d'échecs. Les informations d'un tournoi doivent être saisies et les joueurs ajoutés, puis l'application génère les tours de jeu (avec les matchs qu'ils contiennent) et permet à l'utilisateur de saisir les résultats des matchs. Une fois le nombre de tours approprié atteint, l'application clôture le tournoi et renvoie le classement des joueurs.  
 
 ## Mise en place et exécution de l'application
 
